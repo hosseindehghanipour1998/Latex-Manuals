@@ -139,3 +139,24 @@ Others :
 
 % We can add styling to whatever text is passed
 `\newcommand{\typew}[1]{\texttt{#1}}`
+
+
+#### Useful Cheatsheets  
+  - [Math operations](https://math.iranquestion.ir/index.php?qa=%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C-%D8%AA%D8%A7%DB%8C%D9%BE).
+  - [A comprehensive reference](https://en.wikibooks.org/wiki/LaTeX)
+  - [Equation Symbols](https://www.stevesque.com/symbols/)
+  - [Greek Symbols I](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
+  - [Greek Symbols II](http://detexify.kirelabs.org/symbols.html)
+
+#### Basic Syntax
+`\\` start a new paragraph.
+`\\*` start a new line but not a new paragraph.
+`\cleardoublepage` flush all material and start a new page.
+`\clearpage` plush all material and start a new page.
+`\linebreak` allow to break the line here.
+`\newline` request a new line.
+`\newpage` request a new page.
+`\nolinebreak` no line break should happen here.
+`\nopagebreak` no page break should happen here.
+`\pagebreak` encourage page break.
+`\quad` and `\qquad` are used for Tab
