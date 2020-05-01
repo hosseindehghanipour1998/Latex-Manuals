@@ -22,6 +22,16 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{setspace}
+% Header and Footer
+\usepackage{lipsum}%% a garbage package you don't need except to create examples.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Data Transfer HW 1}
+\rhead{ Page :  \thepage}
+\cfoot{Hossein Dehghanipour - 9532250}
+% End ofHeader and Footer
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
 \newcommand{\thedate}{\today}
 \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
 \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
@@ -36,6 +46,7 @@
     \end{titlepage}
     \maketitle
 
+\newpage
 \setmainfont{Times New Roman}
 \pagenumbering{roman}
 \tableofcontents
