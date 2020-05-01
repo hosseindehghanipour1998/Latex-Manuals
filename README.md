@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Latex-Tutorial
 
 ## Introduction
@@ -12,10 +13,11 @@ _LaTeX_  is a document preparation system. When writing, the writer uses plain t
 
 ## Table of Contents
   - [Tutorial](https://github.com/hosseindehghanipour1998/Latex-Tutorial/blob/master/Tutorial/readme.md)
-  - [Sample 1 : Data Transfer Homework 1](https://github.com/hosseindehghanipour1998/Latex-Tutorial/tree/master/Tutorial/Sample%201)
+  - [Sample 1 : Data Transfer Homework 1](https://github.com/hosseindehghanipour1998/Latex-Tutorial/tree/master/Samples/Sample%201)
 
 ## References
   - [1] [Derek Banas](http://www.newthinktank.com/2019/01/latex-tutorial/)
+   
 
-
-In order to visit the tutorial [click here]()
+## License 
+This repository is released under [MIT License](https://opensource.org/licenses/MIT). To put it in a nutshell, This means that you can use the source codes in any opensource projects or contributions. Attribution is not mandatory but appreciated.
