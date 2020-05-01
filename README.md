@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# Latex-Tutorial
+# Latex-Manuals
 
 ## Introduction
 What is Latex and how can we use it ?
