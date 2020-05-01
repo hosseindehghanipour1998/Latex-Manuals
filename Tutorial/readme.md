@@ -150,13 +150,23 @@ Others :
 
 #### Basic Syntax
 `\\` start a new paragraph.
+
 `\\*` start a new line but not a new paragraph.
+
 `\cleardoublepage` flush all material and start a new page.
+
 `\clearpage` plush all material and start a new page.
+
 `\linebreak` allow to break the line here.
+
 `\newline` request a new line.
+
 `\newpage` request a new page.
+
 `\nolinebreak` no line break should happen here.
+
 `\nopagebreak` no page break should happen here.
+
 `\pagebreak` encourage page break.
+
 `\quad` and `\qquad` are used for Tab
