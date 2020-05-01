@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7400 64-bit) (preloaded format=xelatex 2020.5.1)  1 MAY 2020 21:20
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7400 64-bit) (preloaded format=xelatex 2020.5.1)  1 MAY 2020 21:39
 entering extended mode
 **./Tutorial.tex
 (Tutorial.tex
@@ -1114,36 +1114,35 @@ lable
 (Font)              Font shape `TU/TimesNewRoman(0)/m/it' tried instead on inpu
 t line 97.
 [1]
-Overfull \hbox (9.38615pt too wide) in paragraph at lines 118--121
+Overfull \hbox (9.38615pt too wide) in paragraph at lines 121--124
 \OT1/ztmcm/m/n/12 =[]\OMS/ztmcm/m/n/12 ) \OT1/ztmcm/m/n/12 10 [][] [] = 10 [][]
  [] \OMS/ztmcm/m/n/12 ^^@ \OT1/ztmcm/m/n/12 10 [][] [] =[]\OMS/ztmcm/m/n/12 ) \
 OT1/ztmcm/m/n/12 10 [][] [] = 10 [][] [] + 10 [][] [] =[]\OMS/ztmcm/m/n/12 )
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--147
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
 
  []
 
-[2]
-LaTeX Font Info:    Calculating math sizes for size <15> on input line 152.
+LaTeX Font Info:    Calculating math sizes for size <15> on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <15> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 152.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11.10008> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 152.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.00009> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 152.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 167.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 167.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
  (Tutorial.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 167.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 167.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 171.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
 Package rerunfilecheck Info: File `Tutorial.out' has not changed.
 (rerunfilecheck)             Checksum: B77D53C4290649A4BC5C7D56CDE0FAEA;922.
  ) 
@@ -1154,6 +1153,6 @@ Here is how much of TeX's memory you used:
  45998 multiletter control sequences out of 15000+200000
  566195 words of font info for 125 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,6n,82p,821b,833s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 59i,6n,82p,821b,804s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on Tutorial.pdf (6 pages).

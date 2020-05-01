@@ -59,8 +59,8 @@
  $ P_{tx} = 10 $\nnl
  $Att = -20 db$ \nnl
 $P_{rx} = ? $ \nnl
-\noindent $ att = 10 * \log_{10} {(\frac {\prx}{\prx})}  \Longrightarrow -20 =  10 * \log_{10} {(\alpha)}   \Longrightarrow   \alpha = 10^{-2}          $ \nnl
-$ \alpha = (\frac {\prx}{\ptx})  \Longrightarrow (\frac {\prx}{10})  =   \frac {1}{100}   \Longrightarrow   \prx =  \frac {1}{10} watt \Longrightarrow \prx = 10^{2} Milli Watt$\nnl
+\noindent $ att = 10 * \log_{10} {(\frac {\prx}{\ptx})}  \Longrightarrow -20 =  10 * \log_{10} {(\alpha)}   \Longrightarrow   \alpha = 10^{-2}          $ \nnl
+$ \alpha = (\frac {\prx}{\ptx})  \Longrightarrow (\frac {\prx}{10})  =   \frac {1}{100}   \Longrightarrow   \prx =  \frac {1}{10} watt \Longrightarrow \prx = 10^{2} mW$\nnl
 \end{doublespace}
 
 
@@ -108,7 +108,10 @@ $SNR = 10 * \log_{10}{\frac{S}{N}} \Longrightarrow SNR = 10 * \log_{10}{2^{20} -
 %===================================
 \section {Question 4 }
 \begin{doublespace}
-$Waiting For Hanie$
+$N = 10mW$\\
+$\ptx = 20dbmW \Longrightarrow 10 \log_{10}{2} = 20 \Longrightarrow \log_{10}{S} = 2 \Longrightarrow \ptx = 10^2  mW $\\
+$-5 = 10 \log_{\frac{\prx}{100}}{10} \Longrightarrow (\frac{-1}{2}) = \log_{\prx}{100} \Longrightarrow 10^{-5} = \frac{\prx}{10^2} \Longrightarrow \prx = 10^{1.5} = S$\\
+$C = BW * \log_{2}{(1 + \frac{S}{N})} \Longrightarrow C = 2 * 10^6  * \log_{2}{(1 + 10^{0.5})} \Longrightarrow C = 2 * 10^6 * \log_{2}{(3.16 + 1)} \Longrightarrow  C = 2 * 10^6 * \log_{2}{(4.16)} \approx 4 MHz $
 \end{doublespace}
 \line(1,0){450}
 
@@ -132,6 +135,7 @@ $\Longrightarrow 10 \log_{10}{(\frac{E_b}{N_0})} = 10 \log_{10}{(S)} - 10 \log_{
 %===================================
 \section {Question 7 }
 \begin{doublespace}
+10 Channels + 9 Guard Band : $\Longrightarrow  10 * (4 )KHz + 9 * (0.5) KHz = 40 + 4.5 = 44.5 KHz $ 
 \end{doublespace}
 \line(1,0){450}
 
