@@ -24,87 +24,25 @@
 \usepackage{mathtools}
 \usepackage{setspace}
 \newcommand{\thedate}{\today}
-
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 % ====================== Begin Doc =============================
 \begin{document}
-% ****** Title ******
-\title{\Large{\textbf{Data Transfer HW 1}}}
-\author{By Hossein Dehghanipour}
-\date{\today}
-\maketitle
 
- \begin{center}
-% ***** In The Name Of God *****
-{
-\centering
-\fontfamily{titr}  
-\fontsize{16pt}{16pt}
-\selectfont 
-\centering
-In The Name Of God
-}
-\newline
-
-
-% ***** ShirazU Logo *****
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.3\textwidth]{shirazuLogo.png}
-\caption*{}
-\label{f-0-0}
-\end{figure}
-
-
-
-{
-\centering
-\fontfamily{titr}  
-\fontsize{14pt}{14pt}
-\selectfont 
-Homework 1
-}
-
-{
-\centering
-\fontfamily{titr}  
-\fontsize{12pt}{12pt}
-\selectfont 
-Author : Hossein Dehghanipour
-}
-
-{
-\centering
-\fontfamily{titr}  
-\fontsize{12pt}{12pt}
-\selectfont 
-Teacher : Dr . Mansoori
-}
-
-{
-\centering
-\fontfamily{titr}  
-\fontsize{12pt}{12pt}
-\selectfont 
-Course : Data Transfer
-}
-
-{
-\centering
-\fontfamily{titr}  
-\fontsize{12pt}{12pt}
-\selectfont 
-Shiraz University - \thedate
-}
-
-\end{center}
+    \begin{titlepage}
+        \begin{center}
+            \title{\Large{\textbf{Data Transfer HW 1}}}
+            \author{Hossein Dehghanipour - 9532250}
+            \date{\today}
+        \end{center}
+    \end{titlepage}
+    \maketitle
 
 \setmainfont{Times New Roman}
-\cleardoublepage 
 \pagenumbering{roman}
 \tableofcontents
 \thispagestyle{empty}
-\cleardoublepage
+\newpage
 \pagenumbering{arabic}
 
 % *************** Questions Section ******************
@@ -122,7 +60,7 @@ Shiraz University - \thedate
  $Att = -20 db$ \nnl
 $P_{rx} = ? $ \nnl
 \noindent $ att = 10 * \log_{10} {(\frac {\prx}{\prx})}  \Longrightarrow -20 =  10 * \log_{10} {(\alpha)}   \Longrightarrow   \alpha = 10^{-2}          $ \nnl
-$ \alpha = (\frac {\prx}{\ptx})  \Longrightarrow (\frac {\prx}{10})  =   \frac {1}{100}   \Longrightarrow   \prx =  \frac {1}{10} $\nnl
+$ \alpha = (\frac {\prx}{\ptx})  \Longrightarrow (\frac {\prx}{10})  =   \frac {1}{100}   \Longrightarrow   \prx =  \frac {1}{10} watt \Longrightarrow \prx = 10^{2} Milli Watt$\nnl
 \end{doublespace}
 
 
