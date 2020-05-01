@@ -4,6 +4,7 @@
 ## Introduction
 What is Latex and how can we use it ?
 According to [Wikipedia](https://en.wikipedia.org/wiki/LaTeX) :
+
 _LaTeX_  is a document preparation system. When writing, the writer uses plain text as opposed to the formatted text found in ["What You See Is What You Get"](https://en.wikipedia.org/wiki/WYSIWYG) word processors like Microsoft Word, LibreOffice Writer and Apple Pages.
 
 ## Tools
