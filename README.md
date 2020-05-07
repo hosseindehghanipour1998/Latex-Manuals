@@ -15,9 +15,14 @@ _LaTeX_  is a document preparation system. When writing, the writer uses plain t
 ## Table of Contents
   - [Tutorial](https://github.com/hosseindehghanipour1998/Latex-Tutorial/blob/master/Tutorial/readme.md)
   - [Sample 1 : Data Transfer Homework 1](https://github.com/hosseindehghanipour1998/Latex-Tutorial/tree/master/Samples/Sample%201)
+  - [Sample 2 : Embedded Systems Homework 1 ](https://github.com/hosseindehghanipour1998/Latex-Manuals/tree/master/Samples/Sample%202)
+  https://github.com/hosseindehghanipour1998/Latex-Manuals/tree/master/Samples/Sample%202
+  - [Sample 3 : Mathematical Foundations of Thermodynamics](https://github.com/hosseindehghanipour1998/Latex-Manuals/tree/master/Samples/Sample%203)[[2]]()
+  
 
 ## References
   - [1] [Derek Banas](http://www.newthinktank.com/2019/01/latex-tutorial/)
+  - [2] [Ehsan Kiani](https://gitlab.com/ehsankiani)
    
 
 ## License 
