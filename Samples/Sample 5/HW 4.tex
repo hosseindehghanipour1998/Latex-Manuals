@@ -1,0 +1,174 @@
+% ====================== Packages =============================
+\documentclass[a4paper,12pt]{article}			   
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr , lipsum}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[linktocpage]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[section]{placeins} 
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage{setspace}
+% Header and Footer
+\usepackage{lipsum}%% a garbage package you don't need except to create examples.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Linear Algebra HW 4}
+\rhead{ Page :  \thepage}
+\cfoot{Hossein Dehghanipour - 9532250}
+% End ofHeader and Footer
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\thedate}{\today}
+\setlength{\parindent}{0pt}
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+% ====================== Begin Doc =============================
+\begin{document}
+
+    \begin{titlepage}
+        \begin{center}
+            \title{\Large{\textbf{Linear Algebra - HW 4}}}
+            \author{Hossein Dehghanipour - 9532250}
+            \date{\today}
+        \end{center}
+    \end{titlepage}
+
+    \maketitle
+\begin{doublespace}
+\begin{flushleft}
+\begin{doublespace}
+	Teacher :  Dr.Mehrzad Bighash
+\end{doublespace} 
+\begin{doublespace}
+	TA : Ms.F.Lotfi
+\end{doublespace} 
+\end{flushleft}
+\end{doublespace} 
+
+\newpage
+\setmainfont{Times New Roman}
+\pagenumbering{roman}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagenumbering{arabic}
+
+% *************** Questions Section ******************
+
+\fontsize{15pt}{15pt}
+\newcommand{\nnl}{\newline \noindent}
+\newcommand{\ptx}{ P_{tx} }
+\newcommand{\prx}{ P_{rx} }
+%===================================
+\section {Question 1}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=3cm]{Q1}
+\end{figure}
+
+\begin{doublespace}
+$Ker(T(v)) = \{ x \mid x \in V , T(x) = 0\}  $ \\
+$T : v  \Rightarrow W $\\
+In order to prove that a Kernel is a subspace, we should prove two ,main features of a kernel :
+\begin{itemize}
+  \item It's closed under vector addition.
+  \item It's closed under multiplication.
+\end{itemize}
+
+Now proving the first feature :\\
+Suppose : $x , y \in Ker(T) $ this means that : $T(x) = 0$   \&   $T(y) = 0 $\\
+can we imply that $ (x + y) \in Ker(T) $ ??\\
+$ T( x + y ) = T(x) + T(y) = 0 + 0 = 0 \in Ker(T) \Rightarrow x + y \in Ker(T)$    \checkmark \\
+Now Proving the second feature :\\
+Assume: $x \in K(T) $ Then $\Rightarrow T(\alpha x ) = \alpha T(x) = \alpha 0 = 0 \in K(T) \Rightarrow $ The second feature is also proved \checkmark \\
+Now We can say that the Kernel of a Linear Transformation is a subspace.
+\end{doublespace}
+\line(1,0){450}
+\newpage
+%===================================
+\section {Question 2 }
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=2cm]{Q2}
+\end{figure}
+
+\begin{doublespace}
+Assume : $\alpha = VV^T $ and $\beta =V^TV $ \\
+$\beta ^T = \alpha $ and $\alpha^T = \beta$\\
+$(x/y)^T = y^T/x^T$\\ 
+$C_v = I - \frac{\alpha}{\beta} \Rightarrow C_v ^T = I^T - \frac{(\beta)^T}{(\alpha)^T} \Rightarrow C_v^T = I^T - \frac{(\alpha)}{(\beta)} = I - \frac{\alpha}{\beta}$\\
+As we can see $C_v^T$ is equal with $C_v$ which means : $C_v^T = C_v \Rightarrow C_v$ is a parallel matrix. 
+\end{doublespace}
+\line(1,0){450}
+\newpage
+%===================================
+
+%===================================
+\section {Question 3 }
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=4cm]{Q3}
+\end{figure}
+
+\begin{doublespace}
+$X = [  x , y ]$\\
+$S(X) = \begin{pmatrix} x-y\\x+y \end{pmatrix}$\\
+$T(X) = \begin{pmatrix} x+y\\x-y \end{pmatrix}$\\
+\end{doublespace} 
+
+\begin{doublespace}
+$ToS : \begin{pmatrix} (x-y)+(x+y)\\ (x-y)-(x+y) \end{pmatrix} = \begin{pmatrix} 2x\\ -2y \end{pmatrix}$
+\end{doublespace} 
+
+\begin{doublespace}
+$SoT : \begin{pmatrix} (x+y)-(x-y)\\ (x+y)+(x-y) \end{pmatrix} = \begin{pmatrix} 2y\\ 2x \end{pmatrix}$
+\end{doublespace} 
+
+\line(1,0){450}
+\newpage
+%===================================
+\section {Question 4 }
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=2cm]{Q4}
+\end{figure}
+
+\noindent
+\begin{doublespace}
+$T(i_1) = i_1 - 3i_2  \Rightarrow T(i_1) =  \binom{1}{-3} $
+
+\noindent $ T(i_2) = i_2  \Rightarrow T(i_2) =  \binom{0}{1}$
+
+$A = [ T(i_1)$   $  T(i_2) ]  = \begin{pmatrix} 1 & 0\\-3 & 1 \end{pmatrix} $ \\
+testing : \\
+$T(x) = Ax \Rightarrow T(i_1) = \begin{pmatrix} 1 & 0\\-3 & 1 \end{pmatrix} \begin{pmatrix} 1 \\0 \end{pmatrix} = \begin{pmatrix} 1 \\-3 \end{pmatrix}  $ \checkmark \\
+\end{doublespace}
+
+\begin{doublespace}
+$T(x) = Ax \Rightarrow T(i_2) = \begin{pmatrix} 1 & 0\\-3 & 1 \end{pmatrix} \begin{pmatrix} 1 \\0 \end{pmatrix} = \begin{pmatrix} 0 \\1 \end{pmatrix}  $ \checkmark \\
+\end{doublespace}
+\line(1,0){450}
+\newpage
+%===================================
+End of this HomeWork.\\
+This file is written in \LaTeX
+% ====================== End Doc =============================
+\end{document}
