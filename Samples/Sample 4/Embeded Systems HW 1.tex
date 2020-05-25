@@ -1,0 +1,153 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4paper]{article}							   %
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}	   %
+%\usepackage{booktaps}											   %
+\usepackage[usenames, dvipsnames]{color}						   %
+\usepackage{color}	
+\usepackage{xcolor}
+
+% Header and Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\lr{Embedded Systems :  HW 2.3}}
+\rhead{ \lr{Page :  \thepage}}
+\cfoot{\lr{Hossein Dehghanipour - 9532250}}
+\renewcommand{\headrulewidth}{0.4pt}% Default \headrulewidth is 0.4pt
+\renewcommand{\footrulewidth}{0.5pt}% Default \footrulewidth is 0pt
+% End ofHeader and Footer
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+\newcommand{\thedate}{\today}											   %
+\newcommand{\dbar}{d\hspace*{-0.08em}\bar{}\hspace*{0.1em}}		   %
+\usepackage{amsthm,amssymb,amsmath}	  							   %
+\usepackage{hyperref}
+\usepackage{MnSymbol,wasysym}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cyan,
+    filecolor=magenta,      
+    urlcolor=blue,
+}											   %
+\usepackage{graphicx,wrapfig}			   					       %
+\usepackage{xepersian}			   								   %
+\settextfont{B Nazanin}											   %
+\defpersianfont\titr[Scale=1]{XB Zar}	  	
+				   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}\thispagestyle{empty}
+
+\begin{center}
+	\section*{
+	 \Huge 
+	به نام خدا
+	}
+	\begin{RTL}
+		\large  اصول طراحی سیستم های نهفته\\
+		\large همورک دوم \\
+		\today
+	\\[2\baselineskip]
+	\end{RTL}
+\end{center}
+
+
+
+\begin{flushright}
+	\begin{RTL} 
+استاد درس :  \href{https://www.linkedin.com/in/mohsen-raji-97974452/}{دکتر محسن راجی}\\
+ نویسنده : حسین دهقانی پور -   9532250
+
+	
+	\end{RTL}
+\end{flushright}
+
+
+\newpage
+\tableofcontents
+\begin{flushleft}
+
+\lr{This document is written by \LaTeX.}
+
+\end{flushleft}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{سوال اول}
+	\begin{RTL}
+		\textcolor{blue}{
+			\lr{Statechart}
+ زیر را در نظر بگیرید.اگر ترتیب ورودی ها به صورت زیر (از چپ به راست) باشد، به ترتیب چه حالاتی طی می شوند؟ \\
+		}
+		\begin{figure}[h!]
+		\centering
+		\includegraphics*[height=5cm]{Q1}
+		\end{figure}
+\\	\begin{flushleft}	
+	\lr{Solution : We are keeping history so we have $\longrightarrow$ B,C,D,Z,D}
+	\end{flushleft}
+	
+	\end{RTL}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{سوال دوم }
+	\begin{RTL}
+			\textcolor{blue}{
+1.	می خواهیم توصیفی برای کنترل کننده یک مایکروفر ارائه کنیم. این مایکروفر خصوصیات زیر را دارد:\\
+-	به کمک این مایکروفر می توان غذا را از زیر حرارت داد
+\lr{ (cook) }
+یا از بالا
+\lr{ (grill)} \\
+-	برای حالت
+\lr{ cook}
+ می توان زمان های مختلف
+\lr{$ 1، 5، 10، 20 $}
+دقیقه را برای پخت غذا انتخاب نمود\\
+-	برای حالت 
+\lr{grill }
+هم دو شدت مختلف
+\lr{ low}
+و
+\lr{ high}
+ برای حرارت در نظر گرفته شده است،\\
+-	برای مایکروفر یک صفحه ارتباط با کاربر در نظر گرفته شده است که تمامی اطلاعات لازم برای کار مایکروفر از آن دریافت می شود. \\
+مایکروفر به این صورت عمل می کند که: \\
+-	ابتدا که مواد غذایی در مایکروفر قرار گرفت، بایستی تنظیمات لازم انجام شود، به طور پیش فرض حالت
+ \lr{cook}
+ و زمان یک دقیقه در نظر گرفته می شود، \\
+-	پس از تنظیمات کلید
+ \lr{Start}
+ زده می شود و مایکرو فر شروع به کار می کند (البته چک می کند که حتما درب مایکروفر بسته باشد) و پس از سپری شدن زمان تنظیم شده، با به صدا در آمدن
+\lr{ beep}
+ به کاربر اعلام می کند که کار مدنظر به اتمام رسیده است. \\
+-	در صورتی که پیش از به پایان رسیدن زمان تنظیم شده، کاربر از ادامه کار منصرف شود، می توان به فشردن کلید
+\lr{ Cancel}
+ کار را متوقف کند، در این صورت با به صدا در آمدن
+\lr{ beep}
+ به کاربر اعلام می کند که کار متوقف شده است، \\
+-	اگر کاربر درب مایکروفر را قبل از به اتمام رسیدن کار باز کند، باز هم مایکروفر کار را متوقف کرده و صدای
+\lr{ beep}
+ را پخش می کند. \\
+با استفاده از زبان
+\lr{ Statechart}
+ کنترل کننده مایکروفر را توصیف کنید. دقت داشته باشید که در صورت نیاز، توصیف بایستی با استفاده از ابرحالت ها و سلسله مراتب مناسب انجام شود\\
+  \\
+			}
+
+	\end{RTL}
+		\begin{figure}[h!]
+		\centering
+		\includegraphics*[height=10cm]{Microwave}
+		\end{figure}
+		
+		\begin{figure}[h!]
+		\centering
+		\includegraphics*[height=10cm]{Cooker}
+		\end{figure}
+		
+		\begin{figure}[h!]
+		\centering
+		\includegraphics*[height=10cm]{Griller}
+		\end{figure}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
