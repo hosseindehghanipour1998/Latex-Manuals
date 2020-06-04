@@ -23,6 +23,7 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage{soul}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \usepackage{setspace}
 % Header and Footer
@@ -39,6 +40,10 @@
 \setlength{\parindent}{0pt}
 \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
 \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+
+%====================== Border ================================
+
 % ====================== Begin Doc =============================
 \begin{document}
 
@@ -110,6 +115,7 @@ Now We can say that the Kernel of a Linear Transformation is a subspace.
 	\includegraphics*[height=2cm]{Q2}
 \end{figure}
 
+\subsection{Part I}
 \begin{doublespace}
 Assume : $\alpha = VV^T $ and $\beta =V^TV $ \\
 $\beta ^T = \alpha $ and $\alpha^T = \beta$\\
@@ -117,6 +123,26 @@ $(x/y)^T = y^T/x^T$\\
 $C_v = I - \frac{\alpha}{\beta} \Rightarrow C_v ^T = I^T - \frac{(\beta)^T}{(\alpha)^T} \Rightarrow C_v^T = I^T - \frac{(\alpha)}{(\beta)} = I - \frac{\alpha}{\beta}$\\
 As we can see $C_v^T$ is equal with $C_v$ which means : $C_v^T = C_v \Rightarrow C_v$ is a parallel matrix. 
 \end{doublespace}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\normV[1]{\norm{V}^#1}
+\subsection{Part II}
+$C_v = I - \frac{(VV^T)}{V^TV} \Rightarrow$  As we already know $ (V^TV)   = \norm{V}^2$ so : \\
+	\begin{align*}	
+	&C_v = I - \frac{(VV^T)}{V^TV} = I - \frac{(VV^T)}{\normV{2}} = \frac{I\normV{2} - VV^T}{\normV{2}}\\
+	&C_v^2 = \frac{\normV{2}I^2 + (VV^T)^2 - 2\normV{2}I(VV^T)}{\normV{4}} \Rightarrow \\
+	&C_v^2 =\frac{\normV{4}I }{\normV{4}} +  \frac{ (VV^T)(VV^T) - 2\normV{2}(VV^T) }{\normV{4}} \Rightarrow \\
+	&C_v^2 = I  +  \frac{ V(V^TV)V^T - 2\normV{2}(VV^T) }{\normV{4}} \Rightarrow \\
+	&C_v^2 = I  +  \frac{ V(\normV{2})V^T - 2\normV{2}(VV^T) }{\normV{4}} \Rightarrow \\
+	&C_v^2 = I  +  \frac{ \normV{2}(VV^T) - 2\normV{2}(VV^T) }{\normV{4}} \Rightarrow \\
+	&C_v^2 = I  +  \frac{- \normV{2}(VV^T) }{\normV{4}} \Rightarrow \\
+	&C_v^2 = I  -  \frac{\normV{2}(VV^T) }{\normV{4}} \Rightarrow \\
+	&C_v^2 = I  -  \frac{\normV{2}(VV^T) }{\normV{4}} \Rightarrow \\
+	&C_v^2 = I  -  \frac{(VV^T) }{\normV{2}}  = C_v \Rightarrow \\
+	&C_v^2   = I - \frac{(VV^T)}{V^TV} = C_v \\
+	\end{align*}
+
+
 \line(1,0){450}
 \newpage
 %===================================

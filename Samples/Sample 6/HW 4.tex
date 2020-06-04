@@ -1,0 +1,224 @@
+% ====================== Packages =============================
+\documentclass[a4paper,12pt]{article}			   
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr , lipsum}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[linktocpage]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{subcaption}
+\usepackage[section]{placeins} 
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage{parskip}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{soul}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage{setspace}
+% Header and Footer
+\usepackage{lipsum}%% a garbage package you don't need except to create examples.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Linear Algebra HW 5}
+\rhead{ Page :  \thepage}
+\cfoot{Hossein Dehghanipour - 9532250}
+% End ofHeader and Footer
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\thedate}{\today}
+\setlength{\parindent}{0pt}
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+
+%====================== Border ================================
+
+% ====================== Begin Doc =============================
+\begin{document}
+
+    \begin{titlepage}
+        \begin{center}
+            \title{\Large{\textbf{Linear Algebra - HW 5}}}
+            \author{Hossein Dehghanipour - 9532250}
+            \date{\today}
+        \end{center}
+    \end{titlepage}
+
+    \maketitle
+\begin{doublespace}
+\begin{flushleft}
+\begin{doublespace}
+	Teacher :  Dr.Mehrzad Bighash
+\end{doublespace} 
+\begin{doublespace}
+	TA : Ms.F.Lotfi
+\end{doublespace} 
+\end{flushleft}
+\end{doublespace} 
+
+\newpage
+\setmainfont{Times New Roman}
+\pagenumbering{roman}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagenumbering{arabic}
+
+% *************** Questions Section ******************
+
+\fontsize{15pt}{15pt}
+\newcommand{\nnl}{\newline \noindent}
+\newcommand{\ptx}{ P_{tx} }
+\newcommand{\prx}{ P_{rx} }
+%===================================
+\section {Question 1}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=3cm]{Q1}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=8cm]{Pic1}
+\end{figure}
+
+\begin{align*}
+	&S = \pi r^2 = 16\pi \\
+	&S^\prime = S * \left\| det \begin{pmatrix} a & b\\c & d \end{pmatrix} \right\|  \Rightarrow \\
+	&S^\prime = S *\left\| ad - bc \right\| \Rightarrow 16\pi \left\| ad - bc \right\|
+\end{align*}
+\line(1,0){450}
+\newpage
+%===================================
+\section {Question 2 }
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=3cm]{Q2}
+\end{figure}
+
+\begin{doublespace}
+	As we know , $ I_n = \begin{pmatrix} 1 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & \ddots & 0\\0 & 0 & 0 & 1 \end{pmatrix}_{n\times n}$ \\
+	And we also know that $A \otimes I_n = \begin{pmatrix} A & 0 & 0 & 0\\0 & A & 0 & 0\\0 & 0 & \ddots & 0\\0 & 0 & 0 & A \end{pmatrix}_{n\times n}$\\
+	We also know as a fact that $ det\begin{pmatrix} A & 0\\0 & D \end{pmatrix} = det(A)det(D) \Rightarrow $ so \\
+	$det\begin{pmatrix} A & 0 & 0 & 0\\0 & A & 0 & 0\\0 & 0 & \ddots & 0\\0 & 0 & 0 & A \end{pmatrix}_{n\times n} =\underbrace{det(A)*det(A)*....*det(A)}_{\text{n times}} = det(A)^n $\\
+\end{doublespace}
+
+\line(1,0){450}
+\newpage
+%===================================
+
+%===================================
+\section {Question 3 }
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=2cm]{Q3}
+\end{figure}
+
+\begin{doublespace}
+	\begin{align*}
+		&det(AB^2) = 72 \Rightarrow det(A)det(B)^2 = 72 \\
+		&det(A^2B^2) = 144 \Rightarrow det(A)^2 * det(B)^2 = 144\\
+		&det(A) = ? , det(2A) = ? , det(AB) = ? \\
+		&\frac{det(A^2B^2)}{det(AB^2)} = \frac{144}{72} \Rightarrow  \frac{ det(A) \cancel{det(A)}  \cancel{ det(B)^2}}{\cancel{det(A)} \cancel{det(B)^2}} \Rightarrow \textcolor{blue}{ det(A) = 2}  \\
+		& det(A)det(B)^2 = 72 \Rightarrow 2 * det(B)^2 = 72 \Rightarrow \textcolor{blue}{ det(B) = 6} \\
+		&det(2A) = 2det(A) = 2 * 2 = 4   \Rightarrow \textcolor{blue}{ det(2A) = 4 }\\
+		&det(AB) = det(A) det(B) = 6 * 2 = 12 \Rightarrow \textcolor{blue}{det(AB) = 12 }
+	\end{align*}
+\end{doublespace}
+\line(1,0){450}
+\newpage
+%===================================
+\section {Question 4 }
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=5cm]{Q4}
+\end{figure}
+
+\subsection{Part I}
+\begin{doublespace}
+I would like to calculate the determinant using the second row due to having the most number of zeros which makes my calculations a lot easier.
+	\begin{align*}
+		&A = \begin{pmatrix} 0 & 5 & 1 & 4\\ 0 & 1 & 0 & 0\\ 8 & 1 & 7 & 5\\ 2 & 1 & 9 & 4\\ \end{pmatrix}\\
+		& det(A) = (-1) det(A_{22}) + 0 = -det(A_{22}) \\
+		& A^\prime = A_{22} = \begin{pmatrix} 0 & 1 & 4\\ 8  & 7 & 5\\ 2 & 9 & 4\\ \end{pmatrix} \\
+		&det(A_{22}) = 0 * \dots -(1) det(A^\prime_{12}) + 4*det(A^\prime_{13}) \Rightarrow \\
+		& = (-1)\begin{vmatrix}
+			8 & 5  \\ 
+			2 & 4 \\ 
+			\end{vmatrix}  
+		+ 
+		(4)\begin{vmatrix}
+			8 & 7 \\ 
+			2 & 9  \\ 
+			\end{vmatrix}  
+		= (32 - 10 ) * (-1) + 4(72-14) = -22 + 4(58) = 232 - 22 = 210 
+	\end{align*}
+\end{doublespace}
+\line(1,0){450}
+
+\subsection{Part II}
+\begin{doublespace}
+I would like to calculate the determinant using the second row due to having the most number of zeros which makes my calculations a lot easier.
+	\begin{align*}
+		&B = \begin{pmatrix} 4 & 2 & 7 & 0\\ 3 & 6 & 9 & 4\\ 1 &4 & 3 & 9\\ 4 & 0 & 1 & 1\\ \end{pmatrix}\\
+		& det(B) = (4) det(B_{11}) -  (3) det(B_{12}) +  (7) det(B_{13})  \\
+		& \textcolor{red}{det(B_{11}) = ? } \Rightarrow  B_{11} = \begin{pmatrix} 6 & 9 & 4\\ 4  & 3 & 9\\ 0 & 1 & 1\\ \end{pmatrix} \Rightarrow \\%% Det(11) 
+		& = (6)\begin{vmatrix} 3 & 9  \\ 1 & 1 \\ \end{vmatrix}  + (-4)\begin{vmatrix} 9 & 4 \\ 1 & 1  \\ \end{vmatrix} = (6*-6 ) - 4*5 =  -36 -20 = -56 \Rightarrow \\
+		& \textcolor{blue}{det(B_{11}) =  -56 } \\
+		& \textcolor{red}{det(B_{12}) = ? } \Rightarrow  B_{12} = \begin{pmatrix} 3 & 9 & 4\\ 1  & 3 & 9\\ 4 & 1 & 1\\ \end{pmatrix} \Rightarrow \\%% Det(12) 
+		& = (3)\begin{vmatrix} 3 & 9  \\ 1 & 1 \\ \end{vmatrix}  + (-9)\begin{vmatrix} 1 & 9 \\ 4 & 1  \\ \end{vmatrix} + (4)\begin{vmatrix} 1 & 3 \\ 4 & 1  \\ \end{vmatrix} = 3(-6) -9(-35) + 4(-11) = 253 \Rightarrow \\
+		& \textcolor{blue}{det(B_{12}) = 253 } \\
+		& \textcolor{red}{det(B_{13}) = ? } \Rightarrow  B_{13} = \begin{pmatrix} 3 & 6 & 4\\ 1  & 4 & 9\\ 4 & 0 & 1\\ \end{pmatrix} \Rightarrow \\%% Det(13) 
+		& = (4)\begin{vmatrix} 6 & 4  \\ 4 & 9 \\ \end{vmatrix}  + (1)\begin{vmatrix}3 & 6 \\ 1 & 4  \\ \end{vmatrix} = 4(56-16)  + (12-6) = 158 \Rightarrow \\
+		& \textcolor{blue}{det(B_{13}) = 158 } \\
+		&det(B) = 4(-56) -3(253) +7(158) = 123 \\
+	\end{align*}
+\end{doublespace}
+\line(1,0){450}
+\newpage
+%===================================
+\section {Question 5 }
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=1.5cm]{Q5}
+\end{figure}
+
+\begin{doublespace}
+Prove that $det(A^{adj}) = det(A)^{n-1} $\\
+	\begin{align*}
+		&A^{-1} = \frac{A^{adj}}{det(A)} \Rightarrow \\
+		 &A^{adj} = A^{-1} *  det(A) \xrightarrow{\text{*A from left}} \\
+		&A * A^{adj} = A*A^{-1} *  det(A) \Rightarrow \\
+		&A * A^{adj} = I_n * det(A) \xrightarrow{\text{det() from both sides}} \\
+		&det(A * A^{adj}) =det( I_n * det(A))\\
+	\end{align*}
+We know that $ det(\alpha I_n) = \alpha^n $\\
+	\begin{align*}
+	&det(A * A^{adj}) =det( I_n * det(A)) \Rightarrow \\
+	&det(A) * det(A^{adj}) =  det(A)^n \Rightarrow \\
+	&det(A^{adj}) = det(A)^{n-1}
+	\end{align*}
+\end{doublespace}
+\line(1,0){450}
+\newpage
+%===================================
+End of this HomeWork.\\
+This file is written in \LaTeX
+% ====================== End Doc =============================
+\end{document}
