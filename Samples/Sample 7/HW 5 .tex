@@ -25,13 +25,15 @@
 \usepackage{mathtools}
 \usepackage{tikz}
 \usepackage{soul}
+\usepackage{unicode-math}
+\usepackage{verbatim} % a package used for multiline commenting
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \usepackage{setspace}
 % Header and Footer
 \usepackage{lipsum}%% a garbage package you don't need except to create examples.
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Linear Algebra HW 5}
+\lhead{Linear Algebra HW 6}
 \rhead{ Page :  \thepage}
 \cfoot{Hossein Dehghanipour - 9532250}
 % End ofHeader and Footer
@@ -50,7 +52,7 @@
 
     \begin{titlepage}
         \begin{center}
-            \title{\Large{\textbf{Linear Algebra - HW 5}}}
+            \title{\Large{\textbf{Linear Algebra - HW 6}}}
             \author{Hossein Dehghanipour - 9532250}
             \date{\today}
         \end{center}
@@ -69,6 +71,7 @@
 \end{doublespace} 
 
 \newpage
+
 \setmainfont{Times New Roman}
 \pagenumbering{roman}
 \tableofcontents
@@ -80,8 +83,65 @@
 
 \fontsize{15pt}{15pt}
 \newcommand{\nnl}{\newline \noindent}
+
+
+% *************** Define Variables ***********************
 \newcommand{\ptx}{ P_{tx} }
 \newcommand{\prx}{ P_{rx} }
+\newcommand{\inv}[1]{{#1}^{-1}}
+\renewcommand\CancelColor{\color{red}}
+% *************** Used Commands ***********************
+% some multiline commenting using "verbatim" package.
+
+% \begin{comment}
+% some comment
+% \end{comment}
+
+\begin{comment}
+	
+	 \left\| 
+	 \right\|
+	 \prime
+	 \pi
+	 \underbrace{det(A)*det(A)*....*det(A)}_{\text{n times}}
+	  \otimes
+	 \ddots : diagonal dots
+	  \xrightarrow{\text{*A from left}}
+	 \textcolor{blue}{det(AB) = 12 }
+	 \Rightarrow
+	 \cancel{ det(B)^2}
+	 \newcommand{\vfrac}[2]{\ensuremath{\frac{#1}{#2}}}
+	
+	\begin{doublespace}
+	\end{doublespace}
+	
+	
+	 \begin{align*}
+		& \\
+		& \\
+	 \end{align*}
+	
+	
+	
+	 \begin{figure}[h!]
+		\centering
+		\includegraphics*[height=3cm]{PicNameWithOutFileType}
+	 \end{figure}
+
+
+	\[
+	    \alpha(x)=\left\{
+	                \begin{array}{ll}
+	                  x\\
+	                  \frac{1}{1+e^{-kx}}\\
+	                  \frac{e^x-e^{-x}}{e^x+e^{-x}}
+	                \end{array}
+	              \right.
+	  \]
+
+	\sum_{n=-\infty}^{+\infty} f(x)
+	\[ \lim_{x \to 2} f(x) = 5 \]
+\end{comment}
 %===================================
 \section {Question 1}
 
@@ -90,33 +150,62 @@
 	\includegraphics*[height=3cm]{Q1}
 \end{figure}
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics*[height=8cm]{Pic1}
-\end{figure}
 
-\begin{align*}
-	&S = \pi r^2 = 4\pi \\
-	&S^\prime = S * \left\| det \begin{pmatrix} a & b\\c & d \end{pmatrix} \right\|  \Rightarrow \\
-	&S^\prime = S *\left\| ad - bc \right\| \Rightarrow 4\pi \left\| ad - bc \right\|
-\end{align*}
+\begin{doublespace}
+As we already know :
+$ (A \otimes B ) ( C \otimes D ) = AC \otimes BD $ \\
+By using that rule we can say :
+$ ( A \otimes B )(\inv{A} \otimes \inv{B} ) = A\inv{A} \otimes B\inv{B} = I  $ \\
+We also know that : $ \inv{X}  X  = I \Rightarrow \inv{( A \otimes B )} = (\inv{A} \otimes \inv{B} ) $
+\end{doublespace}
+
 \line(1,0){450}
 \newpage
 %===================================
 \section {Question 2 }
+
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics*[height=3cm]{Q2}
 \end{figure}
 
-\begin{doublespace}
-	As we know , $ I_n = \begin{pmatrix} 1 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & \ddots & 0\\0 & 0 & 0 & 1 \end{pmatrix}_{n\times n}$ \\
-	And we also know that $A \otimes I_n = \begin{pmatrix} A & 0 & 0 & 0\\0 & A & 0 & 0\\0 & 0 & \ddots & 0\\0 & 0 & 0 & A \end{pmatrix}_{n\times n}$\\
-	We also know as a fact that $ det\begin{pmatrix} A & 0\\0 & D \end{pmatrix} = det(A)det(D) \Rightarrow $ so \\
-	$det\begin{pmatrix} A & 0 & 0 & 0\\0 & A & 0 & 0\\0 & 0 & \ddots & 0\\0 & 0 & 0 & A \end{pmatrix}_{n\times n} =\underbrace{det(A)*det(A)*....*det(A)}_{\text{n times}} = det(A)^n $\\
-\end{doublespace}
 
-\line(1,0){450}
+
+\begin{doublespace}
+As we know from a theorem in out book : $ \textcolor{purple}{ \inv{ (\inv{A} + \inv{B} )} = A - A\inv{( B + A )} A}$  by which we can conclude that : \\
+$ ( X + Y ) = \inv{X} - \inv{X}\inv{(\inv{Y} + \inv{X})}\inv{X} $\\
+Now we can check two situations : 
+
+I ) 
+	\[ \left\{
+	  \begin{array}{lr}
+	   X \rightarrow \inv{A}\\
+	    Y \rightarrow \inv{B}
+	  \end{array}
+	\right.
+	\]
+	\\
+	 \begin{align*}
+		& \underbrace{\textcolor{brown}{\inv{(\inv{A} + \inv{B})}}}_{RI}   = \textcolor {blue}{A - A\inv{( B + A )}A}
+	 \end{align*}
+
+OR
+
+	\[ \left\{
+	  \begin{array}{lr}
+	   X \rightarrow \inv{B}\\
+	    Y \rightarrow \inv{A}
+	  \end{array}
+	\right.
+	\]
+	\\
+	 \begin{align*}
+		& \underbrace{ \textcolor{brown}{\inv{(\inv{B} + \inv{A})} }}_{RII}= \textcolor {blue}{B - B\inv{( A + B )}B}
+	 \end{align*}
+It's crystal clear that $ \underbrace{ \textcolor{brown}{\inv{(\inv{B} + \inv{A})}}}_{RII} = \underbrace{\textcolor{brown}{\inv{(\inv{A} + \inv{B})}}}_{RI}  $ which would result in : $\\
+\textcolor {blue}{A - A\inv{( B + A )}A} =\textcolor {blue}{B - B\inv{( A + B )}B} $ 
+\end{doublespace}
 \newpage
 %===================================
 
@@ -125,95 +214,69 @@
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics*[height=2cm]{Q3}
+	\includegraphics*[height=1cm]{Q3}
 \end{figure}
 
 \begin{doublespace}
-	\begin{align*}
-		&det(AB^2) = 72 \Rightarrow det(A)det(B)^2 = 72 \\
-		&det(A^2B^2) = 144 \Rightarrow det(A)^2 * det(B)^2 = 144\\
-		&det(A) = ? , det(2A) = ? , det(AB) = ? \\
-		&\frac{det(A^2B^2)}{det(AB^2)} = \frac{144}{72} \Rightarrow  \frac{ det(A) \cancel{det(A)}  \cancel{ det(B)^2}}{\cancel{det(A)} \cancel{det(B)^2}} \Rightarrow \textcolor{blue}{ det(A) = 2}  \\
-		& det(A)det(B)^2 = 72 \Rightarrow 2 * det(B)^2 = 72 \Rightarrow \textcolor{blue}{ det(B) = 6} \\
-		&det(2A) = 2^6 * det(A) = 2^6 * 2 = 2^7   \Rightarrow \textcolor{blue}{ det(2A) = 2^7 }\\
-		&det(AB) = det(A) det(B) = 6 * 2 = 12 \Rightarrow \textcolor{blue}{det(AB) = 12 }
-	\end{align*}
+According to what the question is saying, we should assume that $ \underbrace{(\inv{A} + \inv{B}) }_{X} = \underbrace{\inv{(A + B)}}_{X} $\\
+As we already know $( X\inv{X} = I) $ this would mean that : $\underbrace{(\inv{A} + \inv{B}) }_{X}  \underbrace{(A + B)}_{ \inv{X} }     = I $
+\end{doublespace}
+
+
+	 \begin{align*}
+		(\inv{A} + \inv{B}) (A + B)  =  & \inv{A}A + \inv{A}B + \inv{B}A  + \inv{B}B  = I \Rightarrow\\
+		& \cancel{I} + \inv{A}B + \inv{B}A + I  = \cancel{I} \Rightarrow\\
+		&  \inv{A}B + \inv{B}A   = -I\\
+	 \end{align*}
+
+\begin{doublespace}
+
+Now we can have two separate approaches :\\
+$\textcolor {blue}{I)}$\\
+$ \inv{A}B + \inv{B}A   = -I \xrightarrow{\text{*B from left}} B\inv{A}B + A = -B \rightarrow  \textcolor{red}{B\inv{A}B}  = \textcolor{brown}{-A-B} $ \\
+$\textcolor {blue}{II)}$\\
+$ \inv{A}B + \inv{B}A   = -I \xrightarrow{\text{*A from left}}  B + A\inv{B}A = -A \rightarrow  \textcolor{cyan}{A\inv{B}A}  = \textcolor{brown}{-A-B} $ \\
+Now from both (I) and (II) we can conclude that : \\
+$ \textcolor{brown}{-A-B} = \textcolor{cyan}{A\inv{B}A} = \textcolor{red}{B\inv{A}B} \Rightarrow  A\inv{B}A = B\inv{A}B $
 \end{doublespace}
 \line(1,0){450}
+
 \newpage
 %===================================
 \section {Question 4 }
 
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics*[height=5cm]{Q4}
+	\includegraphics*[height=3cm]{Q4}
 \end{figure}
-
-\subsection{Part I}
 \begin{doublespace}
-I would like to calculate the determinant using the second row due to having the most number of zeros which makes my calculations a lot easier.
-	\begin{align*}
-		&A = \begin{pmatrix} 0 & 5 & 1 & 4\\ 0 & 1 & 0 & 0\\ 8 & 1 & 7 & 5\\ 2 & 1 & 9 & 4\\ \end{pmatrix}\\
-		& det(A) = (-1) det(A_{22}) + 0 = -det(A_{22}) \\
-		& A^\prime = A_{22} = \begin{pmatrix} 0 & 1 & 4\\ 8  & 7 & 5\\ 2 & 9 & 4\\ \end{pmatrix} \\
-		&det(A_{22}) = 0 * \dots -(1) det(A^\prime_{12}) + 4*det(A^\prime_{13}) \Rightarrow \\
-		& = (-1)\begin{vmatrix}
-			8 & 5  \\ 
-			2 & 4 \\ 
-			\end{vmatrix}  
-		+ 
-		(4)\begin{vmatrix}
-			8 & 7 \\ 
-			2 & 9  \\ 
-			\end{vmatrix}  
-		= (32 - 10 ) * (-1) + 4(72-14) = -22 + 4(58) = 232 - 22 = 210 
-	\end{align*}
+As we know from the geometrical series : $S_n = I + A + A^2 + ... + A^n , S_0 = I $\\
+\[ S_n  = \Sigma_{n=0}^{n-1} A^n \] \\
+We also know that for each eigenvalue of $\lambda_i $, if $|\lambda_i| < 1 $ then the geometric series would converge to :\\
+ \[S_n = (I-A^n)(I-A)^{-1}\]\\
+ \[ \lim_{x \to \infty } S_n =   I + A + A^2 + ... \]\\
+\[ \Sigma_{n=0}^{\infty} A^n =  \lim_{x \to \infty } S_n =  \lim_{x \to \infty} {\inv{(I-A)}(I-A^n)} =   I + A + A^2 + ...  \xrightarrow{\text{$ \lim_{x \to \infty} A^n = 0 $  }}   \] \\
+\[   \inv{(I-A)} (I-0) =   \textcolor{red} { \inv{(I-A)} =  I + A + A^2 + ...  }  \] \\
+
 \end{doublespace}
+
 \line(1,0){450}
 
-\subsection{Part II}
-\begin{doublespace}
-I would like to calculate the determinant using the second row due to having the most number of zeros which makes my calculations a lot easier.
-	\begin{align*}
-		&B = \begin{pmatrix} 4 & 2 & 7 & 0\\ 3 & 6 & 9 & 4\\ 1 &4 & 3 & 9\\ 4 & 0 & 1 & 1\\ \end{pmatrix}\\
-		& det(B) = (4) det(B_{11}) -  (3) det(B_{12}) +  (7) det(B_{13})  \\
-		& \textcolor{red}{det(B_{11}) = ? } \Rightarrow  B_{11} = \begin{pmatrix} 6 & 9 & 4\\ 4  & 3 & 9\\ 0 & 1 & 1\\ \end{pmatrix} \Rightarrow \\%% Det(11) 
-		& = (6)\begin{vmatrix} 3 & 9  \\ 1 & 1 \\ \end{vmatrix}  + (-4)\begin{vmatrix} 9 & 4 \\ 1 & 1  \\ \end{vmatrix} = (6*-6 ) - 4*5 =  -36 -20 = -56 \Rightarrow \\
-		& \textcolor{blue}{det(B_{11}) =  -56 } \\
-		& \textcolor{red}{det(B_{12}) = ? } \Rightarrow  B_{12} = \begin{pmatrix} 3 & 9 & 4\\ 1  & 3 & 9\\ 4 & 1 & 1\\ \end{pmatrix} \Rightarrow \\%% Det(12) 
-		& = (3)\begin{vmatrix} 3 & 9  \\ 1 & 1 \\ \end{vmatrix}  + (-9)\begin{vmatrix} 1 & 9 \\ 4 & 1  \\ \end{vmatrix} + (4)\begin{vmatrix} 1 & 3 \\ 4 & 1  \\ \end{vmatrix} = 3(-6) -9(-35) + 4(-11) = 253 \Rightarrow \\
-		& \textcolor{blue}{det(B_{12}) = 253 } \\
-		& \textcolor{red}{det(B_{13}) = ? } \Rightarrow  B_{13} = \begin{pmatrix} 3 & 6 & 4\\ 1  & 4 & 9\\ 4 & 0 & 1\\ \end{pmatrix} \Rightarrow \\%% Det(13) 
-		& = (4)\begin{vmatrix} 6 & 4  \\ 4 & 9 \\ \end{vmatrix}  + (1)\begin{vmatrix}3 & 6 \\ 1 & 4  \\ \end{vmatrix} = 4(56-16)  + (12-6) = 158 \Rightarrow \\
-		& \textcolor{blue}{det(B_{13}) = 158 } \\
-		&det(B) = 4(-56) -3(253) +7(158) = 123 \\
-	\end{align*}
-\end{doublespace}
-\line(1,0){450}
 \newpage
 %===================================
 \section {Question 5 }
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics*[height=1.5cm]{Q5}
+	\includegraphics*[height=2cm]{Q5}
 \end{figure}
 
 \begin{doublespace}
-Prove that $det(A^{adj}) = det(A)^{n-1} $\\
-	\begin{align*}
-		&A^{-1} = \frac{A^{adj}}{det(A)} \Rightarrow \\
-		 &A^{adj} = A^{-1} *  det(A) \xrightarrow{\text{*A from left}} \\
-		&A * A^{adj} = A*A^{-1} *  det(A) \Rightarrow \\
-		&A * A^{adj} = I_n * det(A) \xrightarrow{\text{det() from both sides}} \\
-		&det(A * A^{adj}) =det( I_n * det(A))\\
-	\end{align*}
-We know that $ det(\alpha I_n) = \alpha^n $\\
-	\begin{align*}
-	&det(A * A^{adj}) =det( I_n * det(A)) \Rightarrow \\
-	&det(A) * det(A^{adj}) =  det(A)^n \Rightarrow \\
-	&det(A^{adj}) = det(A)^{n-1}
-	\end{align*}
+Assume that we have $Y = AX + X - I \xrightarrow{\text{*A from Right Side}}  YA = A(XA) + XA - A $\\
+$  \xrightarrow{\text{( XA = I) Assumed in the problem description }} YA = A + I - A = I \rightarrow YA = I $ \\
+In the description of the question, it's mentioned that "X" is the only matrix that satisfies (XA = I). from this hint we can conclude that Y = X . \\
+$Y = AX + X - I \xrightarrow{\text{ Y =  X }} X = AX + X - I   \rightarrow  \textcolor{blue}{AX = I}  $
 \end{doublespace}
 \line(1,0){450}
 \newpage
