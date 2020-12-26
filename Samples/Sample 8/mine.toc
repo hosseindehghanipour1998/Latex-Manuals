@@ -1,0 +1,10 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1} Introduction }{ii}{section.1}% 
+\contentsline {section}{\numberline {2} Human Brain }{1}{section.2}% 
+\contentsline {section}{\numberline {3}What Is Machine Learning ?}{3}{section.3}% 
+\contentsline {section}{\numberline {4} History Of Neural Network In Machine Learning }{3}{section.4}% 
+\contentsline {section}{\numberline {5}Main Usages Of Neural Networks }{4}{section.5}% 
+\contentsline {section}{\numberline {6} Neural Network Components }{4}{section.6}% 
+\contentsline {section}{\numberline {7} How Does A Neural Network Work ? }{5}{section.7}% 
+\contentsline {section}{\numberline {8} Keywords }{10}{section.8}% 
+\contentsline {section}{\numberline {9}Summary}{10}{section.9}% 
