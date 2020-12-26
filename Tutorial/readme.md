@@ -56,12 +56,19 @@ Use Helvetica instead of the normal sans serif font
 
 Others :
 % `mathpazo` :  (Palatino (Roman))
+
 % `mathptmx` : (Times (Roman))
+
 % `avant` : (Avant Garde (Sans Serif))
+
 % `courier` : (Courier (Typewriter))
+
 % `chancery` : (Zapf Chancery (Roman))
+
 % `bookman` : (Bookman (Roman) Avant Garde (Sans Serif) Courier (Typewriter))
+
 % `newcent` : (New Century, Avant Garde, Courier)
+
 % `charter` : (Charter (Roman))
 
 
@@ -98,15 +105,15 @@ Others :
 
 % Use roman numeral page numbering
 %`\pagenumbering{roman}`
+
 % Start numbering with page 2
 % `\setcounter{page}{2}`
 
 % Draw a decorative line at the top & bottom of the page
-`\renewcommand{\headrulewidth}{2pt}`
-`\renewcommand{\footrulewidth}{1pt}`
+- `\renewcommand{\headrulewidth}{2pt}`
+- `\renewcommand{\footrulewidth}{1pt}`
+- `\pagestyle{fancy}`
 
-
-`\pagestyle{fancy}`
 % Clear default headers & footers
 `\fancyhf{}`
 
@@ -130,14 +137,14 @@ Others :
 
 
 #### Creating custom commands
-% You can define your own commands
-% Anytime you type \NTT\ New Think Tank will show
+-  You can define your own commands
+- Anytime you type \NTT\ New Think Tank will show
 `\newcommand{\NTT}{New Think Tank}`
 
-% Or, New Think Tank in bold
+- Or, New Think Tank in bold
 `\newcommand{\NTTB}{\textbf{New Think Tank}}`
 
-% We can add styling to whatever text is passed
+- We can add styling to whatever text is passed
 `\newcommand{\typew}[1]{\texttt{#1}}`
 
 
