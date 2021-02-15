@@ -1,0 +1,128 @@
+\documentclass[12pt , a4paper]{article}							   
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr , lipsum}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{csquotes}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[linktocpage]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[section]{placeins} 
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\newcommand{\thedate}{\today}
+%\deflatinfont\titrEn[Scale=1.5]{Linux Libertine}
+
+ \title{\normalfont{Neural Networks}} 
+\author{Hossein Dehghanipour} 
+\date{\today} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  MAIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  First Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+ \begin{center}
+ %picture
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{shirazuLogo.png}
+\caption*{}
+\label{f-0-0}
+\end{figure}
+
+{
+\centering
+\fontfamily{titr}  
+\fontsize{16pt}{16pt}
+\selectfont 
+In The Name Of God
+}
+
+{
+\centering
+\fontfamily{titr}  
+\fontsize{14pt}{14pt}
+\selectfont 
+Sample Title
+}
+
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+Author : Hossein Dehghanipour
+}
+
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+Teacher : Dr . Samiei
+}
+
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+Course : Technical Presentation 
+}
+
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+Shiraz University - \thedate
+}
+
+\end{center}
+ 
+
+ 
+\setmainfont{Times New Roman}
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  TABLE OF CONTENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+%\thispagestyle{empty}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section { Introduction } 
+
+
+\cleardoublepage
+
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  SECTION 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section { Human Brain } \label{sec:1}
+\subsection{A}
+\subsubsection{B}
+
+
+%picture 3
+\begin{figure}[h]
+\centering
+%\setlength{\fboxrule}{5pt}
+%\fbox{\includegraphics[width=0.75\textwidth,frame]{Neuron.jpg}}
+\includegraphics[width=0.75\textwidth,frame]{Neuron.jpg}
+\caption*{Figure 2-3,A Closer Look At a Neuron}
+\label{f-1-4}
+\end{figure}
+
+
+\LaTeX
+
+\end{document}
