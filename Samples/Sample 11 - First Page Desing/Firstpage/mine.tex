@@ -1,0 +1,76 @@
+%%%% https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
+\documentclass[10pt , a4paper]{article}						   
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr , lipsum}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{csquotes}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[linktocpage]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[section]{placeins} 
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+
+\usepackage{color}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\usepackage{listings}
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%% Header/Footer %%%%%%%%%
+\newcommand\HUGE{\@setfontsize\Huge{100}{72}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{javaLogo.png}
+\caption*{}
+\label{f-0-0}
+\end{figure}
+\Huge{ \textbf{Java Design Patterns}}\\[20pt]
+\large
+Written By: \textbf{Hossein Dehghanipour}\\[20pt]
+Made By:  \textbf{Derek Banas - 2012 - YouTube}\\[20pt]
+\textbf{July 2021}
+
+\end{center}
+
+
+
+\newpage
+
+
+\end{document}
