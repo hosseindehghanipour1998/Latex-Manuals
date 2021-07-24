@@ -47,31 +47,35 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\newcommand{\Topic}{Model View Controller (MVC)}
 %%%%%%%%%%%%%%%% Header/Footer %%%%%%%%%
-\newcommand\HUGE{\@setfontsize\Huge{100}{72}}
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\pagestyle{fancy}
+\fancyhf{}
+\chead{\textbf{\Topic}}
+\rhead{Derek Banas - Youtube - 2012}
+\lhead{Java Design Patterns}
+\cfoot{Page \thepage}
+\lfoot{Hossein Dehghanipour}
+\rfoot{\today}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\thispagestyle{empty}
-\begin{center}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.3\textwidth]{javaLogo.png}
-\caption*{}
-\label{f-0-0}
-\end{figure}
-\Huge{ \textbf{Java Design Patterns}}\\[20pt]
-\large
-Written By: \textbf{Hossein Dehghanipour}\\[20pt]
-Made By:  \textbf{Derek Banas - 2012 - YouTube}\\[20pt]
-\textbf{July 2021}\\[20pt]
-\textbf{(Part III)}
 
-\end{center}
-
-
-
-\newpage
-
+  \begin{enumerate}[label=\arabic*,leftmargin=*,labelsep=2ex,ref=\arabic*]
+    \item First chapter \dotfill 2
+      \begin{enumerate}[label*=.\arabic*,leftmargin=*,labelsep=2ex]
+        \item First section \dotfill 3
+        \begin{enumerate}[label*=.\arabic*,leftmargin=*,labelsep=2ex]
+        \item First sub section \dotfill 4
+      \end{enumerate}
+      \end{enumerate}
+    \item Second chapter \dotfill 10
+      \begin{enumerate}[label*=.\arabic*,leftmargin=*,labelsep=2ex]
+        \item First section \dotfill 12
+        \begin{enumerate}[label*=.\arabic*,leftmargin=*,labelsep=2ex]
+        \item First sub section \dotfill 13
+      \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
 
 \end{document}
