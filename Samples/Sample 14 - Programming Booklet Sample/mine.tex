@@ -1,0 +1,4352 @@
+%====================================================================
+%
+%								Packages
+%
+%====================================================================
+\documentclass[12pt , a4paper]{article}						   
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr , lipsum}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{csquotes}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[linktocpage]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[section]{placeins} 
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{stmaryrd} % used for arrows
+%====================================================================
+%
+%								Defined Colors
+%
+%====================================================================
+% http://latexcolor.com/
+\usepackage{color}
+\definecolor{lightGrey}{rgb}{105,105,105}
+\definecolor{azure}{rgb}{0.94, 1.0, 1.0}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{aureolin}{rgb}{0.99, 0.93, 0.0}
+\definecolor{bananamania}{rgb}{0.98, 0.91, 0.71}
+\definecolor{bazaar}{rgb}{0.6, 0.47, 0.48}
+\definecolor{blizzardblue}{rgb}{0.67, 0.9, 0.93}
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{charcoal}{rgb}{0.21, 0.27, 0.31}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\definecolor{cream}{rgb}{1.0, 0.99, 0.82}
+\definecolor{Midnightblue}{RGB}{34,34,103}
+%====================================================================
+%
+%								Code Highlighter Package
+%
+%====================================================================
+% Include this package if not already included: \usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\usepackage{listings}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+
+\definecolor{background}{RGB}{39, 40, 34}
+\definecolor{string}{RGB}{230, 219, 116}
+\definecolor{comment}{RGB}{117, 113, 94}
+\definecolor{normal}{RGB}{248, 248, 242}
+\definecolor{identifier}{RGB}{166, 226, 46}
+
+\lstset{
+  language=C++,                			% choose the language of the code
+  numbers=left,                   		% where to put the line-numbers
+  stepnumber=1,                   		% the step between two line-numbers.        
+  numbersep=5pt,                  		% how far the line-numbers are from the code
+  numberstyle=\tiny\color{black}\ttfamily,
+  backgroundcolor=\color{background},  		% choose the background color. You must add \usepackage{color}
+  showspaces=false,               		% show spaces adding particular underscores
+  showstringspaces=false,         		% underline spaces within strings
+  showtabs=false,                 		% show tabs within strings adding particular underscores
+  tabsize=4,                      		% sets default tabsize to 2 spaces
+  captionpos=b,                   		% sets the caption-position to bottom
+  breaklines=true,                		% sets automatic line breaking
+  breakatwhitespace=true,         		% sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 		% show the filename of files included with \lstinputlisting;
+  basicstyle=\color{normal}\ttfamily,					% sets font style for the code
+  keywordstyle=\color{magenta}\ttfamily,	% sets color for keywords
+  stringstyle=\color{string}\ttfamily,		% sets color for strings
+  commentstyle=\color{comment}\ttfamily,	% sets color for comments
+  emph={format_string, eff_ana_bf, permute, eff_ana_btr},
+  emphstyle=\color{identifier}\ttfamily
+}
+
+\definecolor{mygray}{rgb}{0.4,0.4,0.4}
+\definecolor{mygreen}{rgb}{0,0.8,0.6}
+\definecolor{myorange}{rgb}{1.0,0.4,0}
+\definecolor{includeColor}{RGB}{197,134,192}
+\definecolor{myblue}{RGB}{86,156,214}
+\lstset{
+language=C++,  
+commentstyle=\color{mygreen},
+frame=single,
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny\color{mygray},
+keywordstyle=\color{myblue},
+showspaces=false
+basicstyle=\color{normal}\ttfamily,	
+showstringspaces=false,
+stringstyle=\color{myorange},
+tabsize=2
+}
+
+
+
+\lstset{
+  emph = {std,include},
+  emphstyle = \color{includeColor}
+}
+
+%\begin{lstlisting}[language=java]
+%\end{lstlisting}
+
+%====================================================================
+%
+%								Output Box
+%
+%====================================================================
+
+%\begin{tcolorbox}
+%\textbf{Output:}\\
+%>> g++ -o program main.cpp\\
+%\end{tcolorbox}
+
+%% Custom TcolorBox 
+
+
+%%%%%%%%%% Sample Box %%%%%%%%%%%%%%%%
+\newtcolorbox{BoxName}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  title    = {#3},
+  #1,
+}
+
+%%%%%%%%%% Important Box %%%%%%%%%%%%%%%%
+\definecolor{imp_box_green_title}{RGB}{191,254,192}
+\definecolor{imp_box_green_bg}{RGB}{230,255,230}
+\definecolor{imp_box_blue_title}{RGB}{0,0,139}
+
+\newtcolorbox{importantBox}[1][]
+{
+  colframe = {imp_box_green_title},
+  colback  = {imp_box_green_bg},
+  coltitle = {imp_box_green_title},  
+  title    = {\textcolor{imp_box_blue_title}{\textbf{Attention}}},
+  #1,
+}
+
+%%%%%%%%%% Problem Definition Box %%%%%%%%%%%%%%%%
+\definecolor{prob_box_white_title}{RGB}{145,81,23}
+\definecolor{prob_box_chocolate_bg}{RGB}{210,105,30}
+\definecolor{prob_box_white_text}{RGB}{255,255,255}
+\definecolor{prob_box_paleGreen_text}{RGB}{245,245,220}
+
+
+\newtcolorbox{problemDefBox}[1][]
+{
+  colframe = {prob_box_white_title},
+  colback  = {prob_box_chocolate_bg},
+  coltitle = {prob_box_white_title},  
+ coltext={prob_box_paleGreen_text},
+  title    = {\textcolor{prob_box_white_text}{\textbf{Problem}}},
+  #1,
+}
+%====================================================================
+%
+%								Text Highlighter Package
+%
+%====================================================================
+\usepackage{xcolor}
+%\colorbox{pink}{highlight}
+%\newcommand{\hl}[1]{\colorbox{coolblack}{\color{cream}\textbf{#1}\color{black}}}
+%====================================================================
+%
+%								Some Useful Tips
+%
+%====================================================================
+
+%***********************************
+%			Items
+%***********************************
+
+%\begin{itemize}
+%\item \\[7pt]
+%\end{itemize}
+
+%====================================================================
+%
+%								Variables
+%
+%====================================================================
+%\newcommand{}[1]{}
+\newcommand{\dateOfWritingThisBooklet}{July 2021}
+\newcommand{\hl}[1]{\colorbox{coolblack}{\color{cream}\textbf{#1}\color{black}}}
+\newcommand{\bs}{$\backslash$}
+\newcommand{\arrow}{$\shortrightarrow$}
+
+
+%====================================================================
+%
+%								Header / Footer
+%
+%====================================================================
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\pagestyle{fancy}
+\fancyhf{}
+\chead{}
+\rhead{}
+\lhead{C++ Tutorial}
+\cfoot{Page \thepage}
+\lfoot{Hossein Dehghanipour}
+\rfoot{\dateOfWritingThisBooklet}
+%====================================================================
+%
+%								Start of The Document
+%
+%====================================================================
+\begin{document}
+%====================================================================
+%
+%								First Page (Author, ...)
+%
+%====================================================================
+\thispagestyle{empty}
+ \begin{center}
+
+{
+\centering
+\fontfamily{titr}  
+\fontsize{16pt}{16pt}
+\selectfont 
+In The Name Of God
+}
+\\[60pt]
+ %picture
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{c-logo-icon-.png}
+\caption*{}
+\label{f-0-0}
+\end{figure}
+{
+\centering
+\fontfamily{titr}  
+\fontsize{14pt}{14pt}
+\selectfont 
+C++ Tutorial
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+Author : Hossein Dehghanipour
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+\begin{tabular}{l | l}
+References:	&	 \href{www.sololearn.com}{Sololearn.com}\\ [5pt]
+				&	 \href{https://www.geeksforgeeks.org/}{GeeksforGeeks.org}\\[5pt]
+				&	 \href{https://www.youtube.com/watch?v=DamuE8TM3xo&list=PLGLfVvz_LVvQ9S8YSV0iDsuEU8v11yP9M}{Youtube - Derek Banas}
+\end{tabular}
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+July - August 2021
+}
+
+\end{center}
+ 
+
+ 
+\setmainfont{Times New Roman}
+\newpage
+
+%====================================================================
+%
+%								Table of Content
+%
+%====================================================================
+\tableofcontents
+\newpage
+
+
+%====================================================================
+%
+%								Section: About C++
+%
+%====================================================================
+\section{Introduction to C++}
+C++ is a popular cross-platform language that can be used to create high-performance applications, operating systems, browsers, video-games, art applications and so on \arrow It is a general-purpose programming language.
+For now, remember that the entry point of every C++ program is the main() function, irrespective of what the program does.
+\newpage
+%====================================================================
+%
+%								Section: Installing C++
+%
+%====================================================================
+\section{Installing C++}
+	\subsection{Install MinGW}
+		%	\item \\[7pt]
+		\begin{itemize}
+			\item Go to \href{https://sourceforge.net/projects/mingw/}{https://sourceforge.net/projects/mingw/}. \\
+			\item Download the MinGW. \\
+			\item Install it. While installing it, keep everything as it is. Don't change the depository of it's installation.\\
+			\item Install/tick these items:\\
+				\begin{itemize}
+					\item \hl{mingw32-base} \\
+					\item \hl{mingw32-gcc-g++}\\
+					\item \hl{msys-base}\\
+				\end{itemize}
+			\item After clicking on these items, on the left hand side of this page click on \hl{"Installation"} and click on \hl{"Apply Changes"}.\\
+			\item After everything is downloaded click on \hl{"Close"}.\\
+			\item Set environment path. The default paths are: \\
+				\begin{itemize}
+					\item  \hl{C:$\backslash$MinGW$\backslash$bin} \\
+					\item  \hl{C:$\backslash$MinGW$\backslash$msys$\backslash$1.0$\backslash$bin} \\
+				\end{itemize}
+			\item Now check the installed C++ version using: \hl{\$ g++  -\--version} in you \hl{CMD}.\\
+		\end{itemize}
+	\subsection{Run a C++ Code in CMD}
+		\begin{itemize}
+			\item \textbf{NetBeans} is the suggested IDE for C++. However you can use \textbf{VsCode} and use the following commands to compile and run the code.
+			\begin{itemize}
+				\item \hl{\$ g++ -o program fileName.cpp} \\
+				\item \hl{\$ .\bs program.exe}\\
+			\end{itemize}
+			\item If you want to run a code with a specific version of C++:
+			\begin{itemize}
+				\item \hl{\$ g++ -o program -std=c++17 main.cpp} $\shortrightarrow$ Using C++ version 17. \\
+				\item \hl{\$ .\bs program.exe}\\
+			\end{itemize}
+
+		\end{itemize}
+
+\newpage
+%====================================================================
+%
+%								Section: Basics
+%
+%====================================================================
+
+\section{Basics}
+
+	%======================================
+	%
+	%	Subsection: Cout
+	%
+	%======================================
+	\subsection{cout}
+		\begin{itemize}
+			\item \hl{cout} is the stream object used to perform output on the standard output device which is usually the display screen. cout is used in combination with the \textbf{insertion operator <<}. You can add multiple insertion operators after cout.\\
+			\item In C++, the semicolon is used to terminate a statement. Each statement must end with a semicolon. It indicates the end of one logical expression.\\
+			\item The \hl{<iostream>} header defines the standard stream objects that input and output data.\\
+			\item A \textbf{namespace} is a declarative region that provides a scope to the identifiers (names of elements) inside it. In our code, the line using namespace \textbf{std}; tells the compiler to use the \textbf{std (standard) namespace}. The \textbf{std} namespace includes features of the \textbf{C++ 							Standard Library}.\\
+			\item The \textbf{cout} object does not insert a line break at the end of the output. One way to print two lines is to use the \hl{endl} manipulator, which will put in a line break.\\
+			\item The new line character\bs n can be used as an alternative to endl. Using a single cout statement with as many instances of \bs n as your program requires will print out multiple lines of text.\\
+			\item \textbf{Identifiers:} An identifier is a name for a variable, function, class, module, or any other user-defined item. An identifier starts with a letter (A-Z or a-z) or an underscore (\_), followed by additional letters, underscores, and digits (0 to 9).\\
+			\item \textbf{Case Sensitivity:} The C++ programming language is case-sensitive, so \textit{myVariable} and \textit{myvariable} are two different identifiers.\\
+			\item \textbf{User Input:} To enable the user to input a value, use \hl{cin} in combination with the extraction operator \hl{(>>)}. The variable containing the extracted data follows the operator.\\
+			\item Specifying the data type for a given variable more than once results in a syntax error.\\
+			\item \textbf{Auto keyword:} The auto keyword allows you to automatically deduct the type of the variable being declared. It infers the data type of the variable from its value. Any variable declared with the auto keyword should be initialized at the time of its declaration or there will be an error.\\
+			\item C++ provides the option of nesting an unlimited number of if/else statements.\\
+			\item In if/else statements, a single statement can be included without enclosing it into curly braces.\\
+			\item Unlike for and while loops, which test the loop condition at the top of the loop, the do...while loop checks its condition at the bottom of the loop. A do...while loop is similar to a while loop. The one difference is that the do...while loop is guaranteed to execute at least one time.\\
+			\item The Boolean data type returns just two possible values: true (1) and false (0).\\	
+			\item Several of the basic types, including integers, can be modified using one or more of these type modifiers:\\
+			\begin{itemize}
+				\item \textbf{signed:} A signed integer can hold both negative and positive numbers.\\
+				\item \textbf{unsigned:} An unsigned integer can hold only positive values.\\
+				\item \textbf{short:} Half of the default size.\\
+				\item \textbf{long:} Twice the default size.\\
+			\end{itemize}
+
+		\end{itemize}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Sample C++ Code
+	#include <iostream>
+	using namespace std;
+	
+	int main()
+	{
+	
+	cout << "Hello world!" << endl;
+	
+	int num;
+	cin >> num;
+
+	auto x = 4; //integer
+    	auto y = 3.37; //float
+    	auto z = "hello"; //string 
+
+	auto num; //runtime error
+	num=5;  //runtime error
+
+
+	return 0;
+
+	} 
+	\end{lstlisting}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Your First C++ Program
+	#include <cstdlib> //C standard library
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	
+	// we can also pass "int argc, char **argv" to our main
+	int main() {
+	    std::cout << "Hello World!" <<std::endl;
+	    int a = 10;
+	    return 0;
+	}
+	\end{lstlisting}
+	
+	
+	\begin{tcolorbox}
+	Output:
+	Hello World!
+	\end{tcolorbox}
+
+	%======================================
+	%
+	%	Subsection: Argc
+	%
+	%======================================
+	\subsection{argc}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Your First C++ Program
+	#include <cstdlib> //C standard library
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	
+	
+	int main(int argc, char **argv) {
+	    std::cout << "Hello World!" << std::endl;
+	
+	    if (argc != 1 ){
+	        std::cout << "You have entered" << argc << "arguments\n";
+	    }
+	
+	    for (int i = 0 ; i < argc ; i++){
+	        std::cout << argv[i] << "\n";
+	    }
+	
+	    return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Input in Terminal:}\\
+	>> g++ -o program main.cpp\\
+	>> ./program.exe I Love CPP 
+	\end{tcolorbox}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	I\\
+	Love\\
+	CPP
+	\end{tcolorbox}
+
+	%======================================
+	%
+	%	Subsection: Primitive Types
+	%
+	%======================================
+	\subsection{Primitive Types}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Your First C++ Program
+	#include <cstdlib> //C standard library
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	#include <limits> // newly added
+	
+	int g_iRandomVariable = 0 ;
+	// "g" is our standard for Global
+	// "i" is our standard for Integer
+	
+	const double PI = 3.14 ;
+	
+	int main() {
+	    bool bMarries = true;
+	    char chAlpha = 'a';
+	    unsigned short int uInteger = 243;
+	    long int lIntger = PI * 5 ;
+	    float fMoney = 34.12385;
+	    double dbBigFloat = fMoney * 20.6666663;
+	    //auto whatWillIBe = true;
+	
+	    std::cout << "Min Int: "<< std::numeric_limits<int>::min() << " | Max Int: " <<std::numeric_limits<int>::max() <<"\n";
+
+
+	    std::cout << "Min Bool: "<< std::numeric_limits<bool>::min() << " | Max Bool: " <<std::numeric_limits<bool>::max() <<"\n";
+
+
+	    std::cout << "Size of Int: "<< sizeof(int) << "\n";
+
+	    printf("%c, %d, %f", chAlpha, lIntger, fMoney);
+	
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Min Int: -2147483648 | Max Int: 2147483647\\
+	Min Bool: 0 | Max Bool: 1\\
+	Size of Int: 4\\
+	a, 15, 34.123852
+	\end{tcolorbox}
+	%======================================
+	%
+	%	Subsection: Basic String Calls
+	%
+	%======================================
+	\subsection{Basic String Calls}
+		\begin{itemize}
+			\item A string is an ordered sequence of characters, enclosed in double quotation marks.\\
+			\item It is part of the Standard Library.\\
+			\item You need to include the \textbf{<string>} library to use the string data type. Alternatively, you can use a library that includes the string library. (\hl {\#include <string>})\\
+		\end{itemize}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Your First C++ Program
+	#include <cstdlib> //C standard library
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	#include <limits> // newly added
+	
+	int g_iRandomVariable = 0 ;
+	// "g" is our standard for Global
+	// "i" is our standard for Integer
+	
+	const double PI = 3.14 ;
+	
+	int main() {
+	    std::string question ("Enter a number:");
+	    std::string num1 = "12", num2 ;
+	    std::cout << question;
+	    getline(std::cin, num2); //receive user input from keyboard "cin"
+	    std::cout << "Number 1: " << num1 << " | Number 2: " << num2 <<"\n" ;
+	    int iNum1 = std::stoi(num1); //String to Integer
+	    int iNum2 = std::stoi(num2);
+	
+	    printf("%d + %d = %d \n", iNum1 , iNum2 , (iNum1 + iNum2));
+	    printf("%d - %d = %d \n", iNum1 , iNum2 , (iNum1 - iNum2));
+	    printf("%d * %d = %d \n", iNum1 , iNum2 , (iNum1 * iNum2));
+	    printf("%d / %d = %f \n", iNum1 , iNum2 , (iNum1 / iNum2));
+	    printf("%d Mode %d = %d \n", iNum1 , iNum2 , (iNum1 % iNum2));
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Enter a number:25\\
+	Number 1: 12 | Number 2: 25\\
+	12 + 25 = 37\\
+	12 - 25 = -13\\
+	12 * 25 = 300\\
+	12 / 25 = 0.000000\\
+	12 Mode 25 = 12
+	\end{tcolorbox}
+
+Another way to code this is defining a \textbf{namespace} above the main. This method is not suggested due to some challenges and confusions it brings later on.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}
+	#include <cstdlib> 
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	#include <limits> 
+	
+	int g_iRandomVariable = 0 ;
+
+	
+	const double PI = 3.14 ;
+	using namespace std; //newly added
+	int main() {
+	    string question ("Enter a number:");
+	    string num1 = "12", num2 ;
+	    cout << question;
+	    getline(cin, num2);
+	    cout << "Number 1: " << num1 << "| Number 2: " << num2 <<"\n" ;
+	    int iNum1 = stoi(num1);
+	    int iNum2 = stoi(num2);
+	
+	    printf("%d + %d = %d \n", iNum1 , iNum2 , (iNum1 + iNum2));
+	    printf("%d - %d = %d \n", iNum1 , iNum2 , (iNum1 - iNum2));
+	    printf("%d * %d = %d \n", iNum1 , iNum2 , (iNum1 * iNum2));
+	    printf("%d / %d = %f \n", iNum1 , iNum2 , (iNum1 / iNum2));
+	    printf("%d Mode %d = %d \n", iNum1 , iNum2 , (iNum1 % iNum2));
+	}
+	\end{lstlisting}
+
+	%======================================
+	%
+	%	 Subsection: Conditional Operators
+	%
+	%======================================
+	\subsection{Conditional Operators}
+
+	%======================================
+	%
+	%	$ Sub_Subsection:  if, Else, else if
+	%
+	%======================================
+	\subsubsection{if, else if, else}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <cstdlib>
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	#include <limits>
+	
+	
+	
+	int main() {
+	    std::string sAge = "0";
+	    std::cout << "Enter your age: ";
+	    getline(std::cin, sAge);
+	    int iAge = std::stoi(sAge);
+	
+	    if( (iAge >= 15) && (iAge <= 18) ){
+	        std::cout <<"Suitable";
+	    }
+	    else if((iAge >= 65) || (iAge <= 5)){
+	        std::cout <<"Unsuitable";
+	    }
+	    else{
+	        std::cout <<"No regulations is defined over this age";
+	    }
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Enter your age: 36\\
+	No regulations is defined over this age
+	\end{tcolorbox}
+	%======================================
+	%
+	%	$ Sub_Subsection:  Switch Cases
+	%
+	%======================================
+	\subsubsection{Switch Cases}
+		\begin{itemize}
+			\item In a switch statement, the optional default case can be used to perform a task when none of the cases is determined to be true.\\
+			\item As we know, if we don't put \hl{break} statements at the end of each \hl{case}, all of the other cases below our target would also be executed.\\
+		\end{itemize}
+	
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	 
+	int main () {
+	   // local variable declaration:
+	   char grade = 'D';
+	
+	   switch(grade) {
+	      case 'A' :
+	         cout << "Excellent!" << endl; 
+	         break;
+	      case 'B' :
+	      case 'C' :
+	         cout << "Well done" << endl;
+	         break;
+	      case 'D' :
+	         cout << "You passed" << endl;
+	         break;
+	      case 'F' :
+	         cout << "Better try again" << endl;
+	         break;
+	      default :
+	         cout << "Invalid grade" << endl;
+	   }
+	   cout << "Your grade is " << grade << endl;
+	 
+	   return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	You passed\\
+	Your grade is D
+	\end{tcolorbox}
+	
+	%======================================
+	%
+	%	$ Sub_Subsection:  Ternary Operators
+	%
+	%======================================
+	\subsubsection{Ternary Operator}
+	\hl{<condition> ? <true-case-code> : <false-case-code>;}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <cstdlib>
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	#include <limits>
+	
+	int main() {
+	    char grade = 'E';
+	    (grade =='A' ? printf("Excellent") :( (grade =='B' || grade =='C') ? printf("Well Done") :(grade == 'D' ? printf("You Passed") :(grade == 'F' ? printf("Better Try again") : printf("Ivalid Grade")))));
+	
+	    return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Ivalid Grade
+	\end{tcolorbox}
+
+	
+
+	%======================================
+	%
+	%	Subsection: Arrays
+	%
+	%======================================
+	\subsection{Arrays}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <cstdlib>
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	#include <limits>
+	
+	int main() {
+	
+	    int arrNums[10] = {1};
+	    int arrNum2[] = {1,2,3};
+	    int arrNum3[5] = {2,3};
+	
+	    std::cout << "Arraysize: " << sizeof(arrNum3)/sizeof(*arrNum3) <<std::endl;
+	
+	    int matrix[3][4][5] = {
+	    {{0,4,3,2,1},{1,2,3,4,5},{9,7,8,9,1},{0,0,0,0,0}},
+		{{1,4,3,2,1},{1,2,3,4,5},{6,7,8,9,1},{0,0,0,0,0}},
+		{{2,4,3,2,1},{1,2,3,4,5},{8,7,8,9,1},{0,0,0,0,0}},
+	    };
+	
+	    std::cout << "Arraysize: " << sizeof(matrix)/sizeof(*matrix)<<std::endl;
+	
+	    std::cout << "Arraysize: " << matrix[1][2] <<std::endl;
+	
+	}
+	\end{lstlisting}
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Arraysize: 5\\
+	Arraysize: 3\\
+	Arraysize: 0x72fd28
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	Subsection: Vectors
+	%
+	%======================================
+
+	\subsection{Vectors}
+
+
+	%======================================
+	%
+	%	$ Sub_Subsection:  Initializing
+	%
+	%======================================
+	\subsubsection{Initializing}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <cstdlib>
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <sstream>
+	#include <limits>
+	
+	int main() {
+	std::vector<int> numbers(5); //allocated 5 int places for this vector
+	numbers[0] = 10;
+	numbers[1] = 20;
+	numbers.push_back(30); // pushes the value to the latest index
+	
+	std::cout << "Last Item: " << numbers[numbers.size() - 1];
+	
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Last Item: 30
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	$ Sub_Subsection:  Push, Pop, Empty
+	%
+	%======================================
+	\subsubsection{Push, Pop, Empty}
+	\hl{void push\_back (const valueType);}\\
+	\hl{void pop\_back();}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <vector>
+	
+	using namespace std;
+	
+	int main(void) {
+	   vector<int> v;
+	
+	   /* Insert 5 elements */
+	   for (int i = 0; i < 5; ++i){
+	        v.push_back(i + 1);
+	   }
+	
+	    for (int i = 0; i < v.size(); ++i){
+	        cout << v[i] << endl;
+	        if (v.empty() == false){
+	             v.pop_back(); //returns Void
+	        }
+	    }
+	
+	   return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	1\\
+	2\\
+	3
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	$ Sub_Subsection:  Size and Capacity
+	%
+	%======================================
+	\subsubsection{Size and Capacity}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <vector>
+	
+	using namespace std;
+	
+	int main(void) {
+	   vector<int> v;
+	
+	   for (int i = 0; i < 5; ++i)
+	      v.push_back(i + 1);
+	
+	   cout << "Number of elements in vector = " << v.size() << endl;
+	   cout << "Capacity of vector           = " << v.capacity() << endl;
+	
+	   return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Number of elements in vector = 5\\
+	Capacity of vector           = 8
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	$ Sub_Subsection:  Begin, End, Erase
+	%
+	%======================================
+	\subsubsection{Begin, End, Erase}
+
+	\hl{iterator erase (const\_iterator position);}\\
+	\hl{iterator erase (const\_iterator first, const\_iterator last);} \arrow Removes items in between the ranges\\
+	\hl{const\_iterator end() const noexcept;}\\
+	\hl{iterator end() noexcept;}\\
+	\hl{iterator begin() noexcept;}\\
+	\hl{const\_iterator begin() const noexcept;}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <vector>
+	
+	using namespace std;
+	
+	int main(void) {
+	   vector<int> v = {1, 2, 3, 4, 5};
+	
+	   cout << "Original vector" << endl;
+	   for (auto it = v.begin(); it != v.end(); ++it)
+	      cout << *it << endl;
+	
+	   /* Remove first element */
+	   v.erase(v.begin());
+	
+	   cout << "Modified vector" << endl;
+	   for (auto it = v.begin(); it != v.end(); ++it)
+	      cout << *it << endl;
+	
+	   return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Original vector\\
+	1\\
+	2\\
+	3\\
+	4\\
+	5\\
+	Modified vector\\
+	2\\
+	3\\
+	4\\
+	5
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	$ Sub_Subsection:  Clear
+	%
+	%======================================
+	\subsubsection{Clear}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <vector>
+	
+	using namespace std;
+	
+	int main(void) {
+	   auto ilist = {1, 2, 3, 4, 5};
+	   vector<int> v(ilist);
+	
+	   cout << "Initial size of vector     = " << v.size() << endl;
+	   /* destroy vector */
+	   v.clear();
+	   cout << "Size of vector after clear = " << v.size() << endl;
+	
+	   return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Initial size of vector     = 5\\
+	Size of vector after clear = 0
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	Subsection: For_each Loop
+	%
+	%======================================
+	\subsection{Foreach Loop}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// C++ program to demonstrate use of foreach
+	#include <iostream>
+	using namespace std;
+	
+	int main()
+	{
+		int arr[] = { 10, 20, 30, 40 };
+	
+		// Printing elements of an array using
+		// foreach loop
+		for (int x : arr)
+			cout << x << endl;
+	}
+	void printArr(std::vector<int> vec){
+	    for (auto item: vec){
+	        std::cout<< item <<std::endl;
+	    }
+	}
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	10\\
+	20\\
+	30\\
+	40
+	\end{tcolorbox}
+
+
+\newpage
+%====================================================================
+%
+%								Section: Pointers and Functions
+%
+%====================================================================
+\section{Pointers and Functions}
+As we already know, in C/C++ languages, the functions must be declared before calling. Despite Java and Python, the functions must be declared above the usage but can be defined below the calling.\\
+	
+
+	%======================================
+	%
+	%	Subsection: Function Basics
+	%
+	%======================================
+	\subsection{Function Basics}
+		\begin{itemize}
+			\item Using functions can have many advantages, including the following: \\
+			\begin{itemize}
+				\item  You can reuse the code within a function.\\
+				\item You can easily test individual functions.\\
+				\item  If it's necessary to make any code modifications, you can make modifications within a single function, without altering the program structure.\\
+				\item   You can use the same function for different inputs.\\
+			\end{itemize}
+			\item Every valid C++ program has at least one function - the main() function.\\
+			\item You must declare a function's prototype before calling it but defining it can come after using it. (A function declaration, or function prototype, tells the compiler about a function name and how to call the function. The actual body of the function can be defined separately.)\\
+			\item Function declaration is required when you define a function in one source file and you call that function in another file. In such case, you should declare the function at the top of the file calling the function.\\
+			\item The prototype in both declaration and definition should match.\\
+			\item In the \textbf{C++ standard library}, you can access a pseudo random number generator function that's called \hl{rand()}. When used, we are required to include the header \hl{<cstdlib>}.\label{Functions_random_generator}	\\
+			\item The \hl{srand()} function is used to generate truly random numbers. This function allows to specify a \textit{seed} value as its parameter, which is used for the \hl{rand()} function's algorithm. \textbf{Changing the seed value changes the return of rand(). However, the same argument will result in the \underline{same output}.} 	\label{Functions_random_generator_with_seed}\\
+			\item A solution to generate truly random numbers, is to use the \textbf{current time} as a seed value for the srand() function. This example makes use of the \hl{time()} function to get the number of seconds on your system time, and randomly seed the rand() function (we need to include the \hl{<ctime>} header for it). \hl{time(0)} will return the \underline{current second count}, prompting the srand() function to set a different seed for the rand() function each time the program runs.\\
+		\end{itemize}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\ref{Functions_random_generator}
+	\begin{lstlisting}[language=C++]
+
+	#include <iostream>
+	#include <cstdlib>
+	using namespace std;
+	
+	int main() {
+	  cout << rand();
+	}
+
+	\end{lstlisting}
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\ref{Functions_random_generator_with_seed}
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <cstdlib>
+	using namespace std;
+	
+	int main () {
+	    srand(98);
+	
+	    for (int x = 1; x <= 10; x++) {
+	        cout << 1 + (rand() % 6) << endl;
+	    }
+	}
+
+	\end{lstlisting}
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	#include <iostream>
+	#include <cstdlib>
+	#include <ctime>
+	using namespace std;
+	
+	int main () {
+	    srand(time(0));
+	    for (int x = 1; x <= 10; x++) {
+	        cout << 1 + (rand() % 6) << endl;
+	    }
+	}
+	\end{lstlisting}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	/*Fill in the blanks to print to the screen a truly random number from 1 through 15, generated by the rand() function.*/
+
+	#include <iostream>
+	#include <cstdlib>
+	#include <ctime>
+	using namespace std;
+	int main () {
+	    srand(time(0));
+	    cout << 1 + (rand() % 15) << endl;
+
+	}
+	\end{lstlisting}
+
+
+	%======================================
+	%
+	%	Subsection: Default Values for Parameters
+	%
+	%======================================
+	\subsection{Default Values for Parameters}.
+	\begin{itemize}
+		\item When defining a function, you can specify a default value for each of the last parameters. If the corresponding argument is missing when you call a function, it uses the default value.\\
+		\item To do this, use the assignment operator to assign values to the arguments in the function definition, as shown in this example.\\
+	\end{itemize}
+
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	int sum(int a, int b=42) {
+	  int result = a + b;
+	  return (result);
+	}
+	\end{lstlisting}
+
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+
+
+	#include <iostream>
+	using namespace std;
+	
+	int volume(int l=1, int w=1, int h=1) {
+	    return l*w*h;
+	}
+	
+	int main() {
+	    cout << volume() << endl;
+	    cout << volume(5) << endl;
+	    cout << volume(2, 3) << endl;
+	    cout << volume(3, 7, 6) << endl;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	1\\
+	5\\
+	6\\
+	126
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	Subsection: Overloading
+	%
+	%======================================
+	\subsection{Overloading}
+	\begin{itemize}
+		\item Function overloading allows to create multiple functions with the \textbf{\underline same name}, so long as they have different \textbf{ \underline parameters}.\\
+		\item When overloading functions, the definition of the function must differ from each other by the types and/or the number of arguments in the argument list.\\
+		\item As you can see, the function call is based on the argument provided. An integer argument will call the function implementation that takes an integer parameter. A float argument will call the implementation taking a float parameter.\\
+		\item You can not overload function declarations that differ only by return type.\\
+	\end{itemize}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%-
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	void printNumber(int x) {
+	    cout << "Prints an integer: " << x << endl;
+	}
+	void printNumber(float x) {
+	    cout << "Prints a float: " << x << endl;
+	}
+	
+	int main() {
+	    int a = 16;
+	    float b = 54.541;
+	    printNumber(a);
+	    printNumber(b);
+	}
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Prints an integer: 16\\
+	Prints a float: 54.541
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	Subsection: Function Arguments
+	%
+	%======================================
+	\subsection{Function Arguments}.
+
+	\begin{itemize}
+		\item There are two ways to pass arguments to a function as the function is being called. \\
+		\item \textbf{By value:} This method copies the argument's actual value into the function's formal parameter. Here, we can make changes to the parameter within the function without having any effect on the argument. Because a copy of the argument is passed to the function, the original argument is not modified by the function.\\
+		\item \textbf{By reference:} This method copies the argument's reference into the formal parameter. Within the function, the reference is used to access the actual argument used in the call. This means that any change made to the parameter affects the argument.opies an argument's address into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument. To pass the value by reference, argument pointers are passed to the functions just like any other value.\\
+		\item By default, C++ uses call by value to pass arguments.\\
+		\item In general, passing by value is faster and more effective. Pass by reference when your function needs to modify the argument, or when you need to pass a data type, that uses a lot of memory and is expensive to copy.\\
+	\end{itemize}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Pass by Value Example
+	#include <iostream>
+	using namespace std;
+	
+	void myFunc(int x) {
+	    x = 100;
+	}
+	
+	int main() {
+	    int var = 20;
+	    myFunc(var);
+	    cout << var;
+	}
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	20
+	\end{tcolorbox}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	void myFunc(int *x) {
+	    *x = 100;
+	}
+	
+	int main() {
+	    int var = 20;
+	    myFunc(&var);
+	    cout << var;
+	}
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	100
+	\end{tcolorbox}
+As you can see, we passed the variable directly to the function using the address-of operator \textbf{\&}. The function declaration says that the function takes a pointer as its parameter (defined using the * operator).
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <vector>
+	#include <cstdlib>
+	#include <numeric>
+	#include <string>
+	
+	
+	std::string isEven(int);
+	bool isOdd(int);
+	
+	int main(void) {
+	   std::vector<int> v(10);
+	
+	   std::iota(std::begin(v), std::end(v), 0);
+	   // starts from 0 and goes up untill the vector is full
+	
+	   for (int i = 0 ; i < v.size() ; i++){
+	       std::cout << v[i] << " | is Even?: " << isEven(v[i]) << " | Is Odd?:" << isOdd(v[i]) << std::endl;
+	   }
+	
+	
+	
+	   return 0;
+	
+	}
+	
+	std::string isEven(int number){
+	    if ( (number % 2) == 0){
+	        return "true";
+	    }
+	    return "false";
+	}
+	
+	bool isOdd(int number){
+	
+	    if ( (number % 2) == 0){
+	        return true;
+	    }
+	    return false;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	0 | is Even?: true | Is Odd?:1\\
+	1 | is Even?: false | Is Odd?:0\\
+	2 | is Even?: true | Is Odd?:1\\
+	3 | is Even?: false | Is Odd?:0\\
+	4 | is Even?: true | Is Odd?:1\\
+	5 | is Even?: false | Is Odd?:0\\
+	6 | is Even?: true | Is Odd?:1\\
+	7 | is Even?: false | Is Odd?:0\\
+	8 | is Even?: true | Is Odd?:1\\
+	9 | is Even?: false | Is Odd?:0
+	\end{tcolorbox}
+
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	
+	\begin{lstlisting}[language=C++]
+	\\ Palindrome  Checker
+	#include <iostream>
+	#include <cstring>
+	#include<string>
+	using namespace std;
+	
+	bool isPalindrome(int x) {
+	    //complete the function
+	    string str = to_string(x);
+	    int n = str.length();
+	    char char_array[n + 1];
+	    strcpy(char_array, str.c_str());
+	    int last_index = n-1 ;
+	    for(int index = 0; index < n/2 ; index++ , last_index--){
+	        if(char_array[index] != char_array[last_index]){
+	            return false;
+	        }
+	    }
+	
+	    return true;
+	}
+	
+	int main() {
+	    int n;
+	    cin >>n;
+	
+	    if(isPalindrome(n)) {
+	        cout <<n<<" is a palindrome";
+	    }
+	    else {
+	        cout << n<<" is NOT a palindrome";
+	    }
+	    return 0;
+	}
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	123 is NOT a palindrome\\
+	1235321 is a palindrome\\
+	123321 is a palindrome
+	\end{tcolorbox}
+
+
+	%======================================
+	%
+	%	Subsection: Pointers
+	%
+	%======================================
+	\subsection{Pointers}
+	\begin{itemize}
+		\item There are two operators for pointers:\\
+		\begin{itemize}
+			\item \textbf{Address-of} operator (\textbf{\&}): returns the memory address of its operand.\\
+			\item \textbf{Contents-of} (or \textbf{dereference}) operator (\textbf{*}): returns the value of the variable located at the address specified by its operand.\\
+		\end{itemize}
+
+
+	\end{itemize}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	int main()
+	{
+	    int var = 50;
+	    int  *p;
+	    p = &var;
+	
+	    cout << var << endl;
+	    // Outputs 50 (the value of var)
+	
+	    cout << p << endl;
+	    // Outputs 0x29fee8 (var's memory location)
+	
+	    cout << *p << endl;
+	    /* Outputs 50 (the value of the variable
+	     stored in the pointer p) */
+	
+	    return 0;
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	50\\
+	0x7ffdd4b03174\\
+	50
+	\end{tcolorbox}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <vector>
+	#include <cstdlib>
+	#include <numeric>
+	#include <string>
+	
+	
+	std::string isEven(int);
+	void pop(std::vector<int>);
+	void printArr(std::vector<int>);
+	void referencedPop (std::vector<int> &vect);
+	
+	int main(void) {
+	   std::vector<int> v(10);
+	
+	    for (int i = 0 ; i < 10 ; i++){
+	        v[i] = i ;
+	    }
+	
+	    std::cout << "Size: " << v.size() <<std::endl ;
+	    std::cout << "===========Before Normal Pop=============" <<std::endl ;
+	    printArr(v);
+	
+	    pop(v);
+	
+	    std::cout << "===========After Normal Pop=============" <<std::endl ;
+	    printArr(v);
+	    std::cout << "Size: " << v.size() <<std::endl;
+	
+	
+	    referencedPop(v);
+	
+	    std::cout << "===========After Referenced Pop=============" <<std::endl ;
+	    printArr(v);
+	    std::cout << "Size: " << v.size() <<std::endl;
+	
+	
+	   return 0;
+	
+	}
+	
+	std::string isEven(int number){
+	    if ( (number % 2) == 0){
+	        return "true";
+	    }
+	    return "false";
+	}
+	
+	void pop(std::vector<int> sampleVector){
+	    sampleVector.pop_back();
+	}
+	
+	void referencedPop (std::vector<int> &vect){
+	    vect.pop_back();
+	}
+	
+	void printArr(std::vector<int> vec){
+	    for (auto item: vec){
+	        std::cout<< item <<std::endl;
+	    }
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Size: 10\\
+	===========Before Normal Pop=============\\
+	0\\
+	1\\
+	2\\
+	3\\
+	4\\
+	5\\
+	6\\
+	7\\
+	8\\
+	9\\
+	===========After Normal Pop=============\\
+	0\\
+	1\\
+	2\\
+	3\\
+	4\\
+	5\\
+	6\\
+	7\\
+	8\\
+	9\\
+	Size: 10\\
+	===========After Referenced Pop=============\\
+	0\\
+	1\\
+	2\\
+	3\\
+	4\\
+	5\\
+	6\\
+	7\\
+	8\\
+	Size: 9
+	\end{tcolorbox}
+The pointers are exactly the same as C languages. 
+\textbf{vector<int>} is \textbf{non-array}, \textbf{non-reference}, and \textbf{non-pointer} - it is being passed by \hl{value}, and hence it will call copy-constructor. So, you must use \hl{vector<int>\&} (preferably with const , if function isn't modifying it) to pass it as a reference.	
+\newpage
+%====================================================================
+%
+%								Section: String and Math
+%
+%====================================================================
+\section{String and Math}
+	\subsection{String}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// ----- STRING TUTORIAL -----
+	
+	#include <cstdlib>
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <numeric>
+	#include <sstream>
+    	#include <algorithm> // for transform method
+	
+	
+	int main() {
+	
+	    // A C character string is an array of characters
+	    // with a null character at the end \0
+	    char cString[] = {'A', ' ', 'S', 't', 'r', 'i', 'n', 'g', '\0'};
+	    std::cout << cString << "\n";
+	    
+	    // Get array size (null is included)
+	    std::cout << "Array Size " << sizeof(cString) << "\n";
+	    
+	    // C strings are troublesome because if you forget \0, or
+	    // add to much information it can lead your program to crash,
+	    // or for your system to crash
+	    
+	    // You can create a vector of strings
+	    std::vector<std::string> strVec(10);
+	    
+	    // C++ std::string can grow in size and is much safer
+	    std::string str("I'm a string");
+	    strVec[0] = str;
+	    
+	    // You can access characters with an index
+	    std::cout << str[0] << "\n";
+	    
+	    // You can also use at()
+	    std::cout << str.at(0) << "\n";
+	    
+	    // Front returns first char and back returns last
+	    std::cout << str.front() << " " << str.back() << "\n";
+	    
+	    // Get the string length
+	    std::cout << "Length : " << str.length() << "\n";
+	    
+	    // You can copy a string to another
+	    std::string str2(str);
+	    strVec[1] = str2;
+	    
+	    // You can copy after the 1st 4 characters
+	    std::string str3(str, 4);
+	    strVec[2] = str3;
+	    
+	    // Repeat a value to make a string
+	    std::string str4(5, 'x');
+	    strVec[3] = str4;
+	    
+	    // Combine strings with append or +
+	    strVec[4] = str.append(" and your not");
+	    str += " and your not";
+	    
+	    // Append part of a string
+	    str.append(str, 34, 37);
+	    strVec[5] = str;
+	    
+	    // Erase characters from a string from an index to another
+	    // or the last
+	    str.erase(13, str.length() - 1);
+	    strVec[6] = str;
+	    
+	    for(auto y: strVec)
+	        std::cout << y << "\n";
+	    
+	    // find() returns index where pattern is found
+	    // or npos
+	    if(str.find("string") != std::string::npos)
+	        std::cout << "1st not " << str.find("string") << "\n";
+	    
+	    // substr(x, y) returns a substring starting at
+	    // index x with a length of y
+	    std::cout << "Substr " << str.substr(6,6) << "\n";
+	    
+	    // Reverse a string by passing the beginning and end
+	    // of a string
+	    reverse (str.begin(), str.end());
+	    std::cout << "Reverse " << str << "\n";
+	    
+	    // Case conversion
+	    transform(str2.begin(), str2.end(), str2.begin(), ::toupper);
+	    std::cout << "Upper " << str2 << "\n";
+	    transform(str2.begin(), str2.end(), str2.begin(), ::tolower);
+	    std::cout << "Lower " << str2 << "\n";
+	    
+	    // You can get the ascii code for a char by saving
+	    // the char as an int or with (int)
+	    // a - z : 97 - 122
+	    // A - Z : 65 - 90
+	    char aChar = 'Z';
+	    int aInt = aChar;
+	    std::cout << "A Code " << (int)'a' << "\n";
+	    
+	    // Convert int to string
+	    std::string strNum = std::to_string(1+2);
+	    std::cout << "String " << strNum << "\n";
+	    
+	    // ----- PROBLEM : SECRET STRING -----
+	    // Receive an uppercase string and hide its meaning
+	    // by turning it into ascii codes
+	    // Translate it back to the original letters
+	    
+	    std::string normalStr, secretStr = "";
+	    std::cout << "Enter your string in uppercase : ";
+	    std::cin >> normalStr;
+	    
+	    // Cycle through each character converting 
+	    // them into ascii codes which are stored in
+	    // a string
+	    for(char c: normalStr)
+	        secretStr += std::to_string((int)c);
+	        // secretStr += std::to_string((int)c - 23);
+	    
+	    std::cout << "Secret : " << secretStr << "\n";
+	    
+	    normalStr = "";
+	    
+	    // Cycle through numbers in string 2 at a time
+	    for(int i = 0; i < secretStr.length(); i += 2){
+	        
+	        // Get the 2 digit ascii code
+	        std::string sCharCode = "";
+	        sCharCode += secretStr[i];
+	        sCharCode += secretStr[i+1];
+	        
+	        // Convert the string into int
+	        int nCharCode = std::stoi(sCharCode);
+	        
+	        // Convert the int into a char
+	        char chCharCode = nCharCode;
+	        // char chCharCode = nCharCode + 23;
+	        
+	        // Store the char in normalStr
+	        normalStr += chCharCode;
+	    }
+	    
+	    std::cout << "Original : " << normalStr << "\n";
+	    
+	    // ----- END OF PROBLEM : SECRET STRING -----
+	    
+	    // ----- BONUS PROBLEM -----
+	    // Allow the user to enter upper and lowercase
+	    // letters by subtracting and adding 1 value
+	    // ----- END OF BONUS PROBLEM -----
+	    
+	    return 0;
+	    
+	}
+	
+	// ----- END OF STRING TUTORIAL ——
+	
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	A String    \\
+	Array Size 9\\
+	I\\
+	I\\
+	I g\\
+	Length : 12\\ 
+	I'm a string\\
+	I'm a string\\
+	a string\\
+	xxxxx\\
+	I'm a string and your not\\
+	I'm a string and your not and your not not\\
+	I'm a string\\
+	
+	
+	
+	1st not 6\\
+	Substr string\\
+	Reverse  gnirts a m'I\\
+	Upper I'M A STRING\\
+	Lower i'm a string\\
+	A Code 97\\
+	String 3\\
+	Enter your string in uppercase : ALPHABETS IN UPPER\\
+	Secret : 657680726566698483\\
+	Original : ALPHABETS\\
+	\end{tcolorbox}
+
+	%======================================
+	%
+	%	Subsection: Math Library
+	%
+	%======================================
+	\subsection{Math}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// ----- MATH FUNCTIONS -----
+	// C++ has numerous math functions
+	// http://en.cppreference.com/w/cpp/numeric/math
+	
+	// Needed for math functions
+	#include <cmath>
+	#include <cstdlib>
+	#include <iostream>
+	#include <string>
+	#include <vector>
+	#include <numeric>
+	#include <sstream>
+	int main() {
+	
+	    std::cout << "abs(-10) = " << std::abs(-10) << "\n";
+	
+	    std::cout << "max(5,4) = " << std::max(5,4) << "\n";
+	
+	    std::cout << "min(5,4) = " << std::min(5,4) << "\n";
+	
+	    std::cout << "fmax(5.3,4.3) = " << std::fmax(5.3,4.3) << "\n";
+	
+	    std::cout << "fmin(5.3,4.3) = " << std::fmin(5.3,4.3) << "\n";
+	
+	    // e ^ x
+	    std::cout << "exp(1) = " << std::exp(1) << "\n";
+	
+	    // 2 ^ x
+	    std::cout << "exp2(1) = " << std::exp2(1) << "\n";
+	
+	    // e * e * e ~= 20 so log(20.079) ~= 3
+	    std::cout << "log(20.079) = " << std::log(20.079) << "\n";
+	
+	    // 10 * 10 * 10 = 1000, so log10(1000) = 3
+	    std::cout << "log10(1000) = " << std::log10(1000)
+	            << "\n";
+	
+	    // 2 * 2 * 2 = 8
+	    std::cout << "log2(8) = " << std::log2(8)
+	            << "\n";
+	
+	    // 2 ^ 3
+	    std::cout << "pow(2,3) = " << std::pow(2,3)
+	            << "\n";
+	
+	    // Returns what times itself equals the provided value
+	    std::cout << "sqrt(100) = " << std::sqrt(100)
+	            << "\n";
+	
+	    // What cubed equals the provided
+	    std::cout << "cbrt(1000) = " << std::cbrt(1000)
+	            << "\n";
+	
+	    // Hypotenuse : SQRT(A^2 + B^2)
+	    std::cout << "hypot(2,3) = " << std::hypot(2,3)
+	            << "\n";
+	
+	    std::cout << "ceil(10.45) = " << std::ceil(10.45)
+	            << "\n";
+	
+	    std::cout << "floor(10.45) = " << std::floor(10.45)
+	            << "\n";
+	
+	    std::cout << "round(10.45) = " << std::round(10.45)
+	            << "\n";
+	
+	    // Also sin, cos, tan, asin, acos, atan, atan2,
+	    // sinh, cosh, tanh, asinh, acosh, atanh
+	
+	    return 0;
+	}
+	
+	// ----- END OF MATH FUNCTIONS -----
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	abs(-10) = 10\\
+	max(5,4) = 5\\
+	min(5,4) = 4\\
+	fmax(5.3,4.3) = 5.3\\
+	fmin(5.3,4.3) = 4.3\\
+	exp(1) = 2.71828\\
+	exp2(1) = 2\\
+	log(20.079) = 2.99967\\
+	log10(1000) = 3\\
+	log2(8) = 3\\
+	pow(2,3) = 8\\
+	sqrt(100) = 10\\
+	cbrt(1000) = 10\\
+	hypot(2,3) = 3.60555\\
+	ceil(10.45) = 11\\
+	floor(10.45) = 10\\
+	round(10.45) = 10\\
+	\end{tcolorbox}
+\newpage
+%====================================================================
+%
+%								Section: Classes and Objects
+%
+%====================================================================
+\section{Classes and Objects}
+	\begin{itemize}
+		\item Objects also have characteristics that are used to describe them. For example, a car can be red or blue, a mug can be full or empty, and so on. These characteristics are also called\textbf{attributes}. An attribute describes the current \textbf{state} of an object.\\
+		\item An object's state is independent of its type; a cup might be full of water, another might be empty.\\
+		\item So, the following three dimensions describe any object in object oriented programming: \textbf{identity (Objects Name), attributes (Entities inside an Object), behavior (Methods inside the Object)}.\\
+		\item Objects are created using classes, which are actually the focal point of OOP.\\
+		\item The class describes what the object will be, but is separate from the object itself.\\
+		\item In other words, a class can be described as an object's blueprint, description, or definition.\\
+		\item You can use the same class as a blueprint for creating multiple different objects. For example, in preparation to creating a new building, the architect creates a blueprint, which is used as a basis for actually building the structure. That same blueprint can be used to create multiple buildings.\\
+		\item Programming works in the same fashion. We first define a class, which becomes the blueprint for creating objects.\\
+		\item Each class has a name, and describes attributes and behavior.\\
+		\item In programming, the term type is used to refer to a class name: We're creating an object of a particular type.\\
+		\item \textbf{Attributes} are also referred to as \textbf{properties} or \textbf{data}.\\
+		\item A \textbf{method} is a function declared inside a class.\\
+		\item Each object is called an \textbf{instance} of a class. The process of creating objects is called \textbf{instantiation}.\\
+		\item Begin your class definition with the keyword  \textbf{class}. Follow the keyword with the class name and the class body, enclosed in a set of curly braces. \textbf{A class definition must be followed by a \underline semicolon.}\\
+		\item Define all attributes and behavior (or members) in the body of the class, within curly braces. You can also define an access specifier for members of the class. A member that has been defined using the public keyword can be accessed from outside the class, as long as it's anywhere within the scope of the class object. You can also designate a class' members as  \textbf{private} or  \textbf{protected}. \\
+		\item We must declare a class before using it, as we do with functions.\\
+	\end{itemize}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Example:}\\
+	name: BankAccount
+	attributes: accountNumber, balance, dateOpened
+	behavior: open(), close(), deposit()
+	\end{tcolorbox}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{lstlisting}[language=C++]
+	class BankAccount {
+	
+	};
+	\end{lstlisting}
+	%======================================
+	%
+	%	Subsection: Create a Class 
+	%
+	%======================================
+	\subsection{Create a Class}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	#include <iostream>
+	using namespace std;
+	
+	class BankAccount {
+	    public:
+	        void sayHi() {
+	            cout << "Hi" << endl;
+	        }
+	};
+	
+	int main() 
+	{
+	    BankAccount test;
+	    test.sayHi();
+	}
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Hi
+	\end{tcolorbox}
+
+	%======================================
+	%
+	%	Subsection: Abstraction
+	%
+	%======================================
+	\subsection{Abstraction}
+	Data abstraction is the concept of providing only essential information to the outside world. It's a process of representing essential features without including implementation details. A good real-world example is a book: When you hear the term book, you don't know the exact specifics, i.e.: the page count, the color, 	the size, but you understand the idea of a book - the abstraction of the book. The concept of abstraction is that we focus on essential qualities, rather than the specific characteristics of one particular example. Abstraction means, that we can have an idea or a concept that is completely separate from any specific instance.
+It is one of the fundamental building blocks of object oriented programming. For example, when you use cout, you're actually using the cout object of the class ostream. This streams data to result in standard output. In this example, there is no need to understand how cout will display the text on the user's screen. The only thing you need to know to be able to use it is the public interface. \hl{cout << "Hello!" << endl;}. Abstraction acts as a foundation for the other object orientation fundamentals, such as \textbf{inheritance} and \textbf{polymorphism}.
+
+	%======================================
+	%
+	%	Subsection: Encapsulation
+	%
+	%======================================
+	\subsection{Encapsulation}
+	Part of the meaning of the word encapsulation is the idea of \textbf{"surrounding"} an entity, not just to keep what's inside together, but also to \textbf{protect} it.
+	In object orientation, encapsulation means more than simply combining attributes and behavior together within a class; it also means restricting access to the inner workings of that class.\\
+	The key principle here is that an object only reveals what the other application components require to effectively run the application. All else is kept out of view.
+	This is called data hiding.\\
+	This is also known as "black boxing", which refers to closing the inner working zones of the object, except of the pieces that we want to make public.\\
+	This allows us to change attributes and implementation of methods without altering the overall program. For example, we can come back later and change the data type of the balance attribute.\\
+
+	In summary the benefits of encapsulation are:\\
+	\begin{itemize}
+		\item Control the way data is accessed or modified.\\
+		\item Code is more flexible and easy to change with new requirements.\\
+		\item Change one part of code without affecting other part of code.\\
+	\end{itemize}
+	Access specifiers are used to set access levels to particular members of the class.\\
+	The three levels of \textbf{Access Specifiers} are \textbf{public}, \textbf{protected}, and \textbf{private}.\\
+	A public member is accessible from outside the class, and anywhere within the scope of the class object.\\
+	The name attribute is public; it can be accessed and modified from outside the code.\\
+	Access modifiers only need to be declared once; multiple members can follow a single access modifier.\\
+	Notice the  \textbf{colon (:)} that follows the public keyword.\\
+	If no access specifier is defined, all members of a class are set to \textbf{private} by default. For private attributes, we define \textbf{getters} and \textbf{setters}\\
+
+	%======================================
+	%
+	%	Subsection: Constructors
+	%
+	%======================================
+	\subsection{Constructors}
+	Class constructors are special member functions of a class. They are executed whenever new objects are created within that class.\\
+	The constructor's name is identical to that of the class. It has no return type, not even void.\\
+	The constructor is called when an object of the class is being declared.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class myClass {
+	    public:
+	        myClass() {
+	            cout <<"Hey";
+	        }
+	        void setName(string x) {
+	            name = x;
+	        }
+	        string getName() {
+	            return name;
+	        }
+	    private:
+	        string name;
+	};
+	
+	int main() {
+	    myClass myObj;
+	
+	    return 0;
+	}
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Hey
+	\end{tcolorbox}
+	We can also pass some parameters to a constructor.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class myClass {
+	    public:
+	        myClass(string nm) {
+	            setName(nm);
+	        }
+	        void setName(string x) {
+	            name = x;
+	        }
+	        string getName() {
+	            return name;
+	        }
+	    private:
+	        string name;
+	};
+	
+	int main() {
+	    myClass ob1("David");
+	    myClass ob2("Amy");
+	    cout << ob1.getName();
+	}
+
+	\end{lstlisting}
+
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	David
+	\end{tcolorbox}
+	%======================================
+	%
+	%	Subsection: The "new" Operator
+	%
+	%======================================
+	\subsection{The "new" Keyword}
+	This piece of article is copied from \href{https://www.geeksforgeeks.org/new-vs-operator-new-in-cpp/}{GeeksforGeeks.org}.\\
+	When you create a new object, memory is allocated using operator new function and then the constructor is invoked to initialize the memory. Here, The new operator does both the allocation and the initialization, where as the operator new only does the allocation.
+	Let us see how these both work individually.
+
+	%======================================
+	%
+	%	$ Sub_Subsection: New Operator
+	%
+	%======================================
+	\subsubsection{New Operator}
+	The new operator is an \textbf{operator} which denotes a request for memory allocation on the Heap. If sufficient memory is available, new operator initializes the memory and returns the address of the newly allocated and initialized memory to the pointer variable. When you create an object of class using new keyword(normal new).
+	\begin{itemize}
+		\item The memory for the object is allocated using operator new from heap.\\
+		\item The constructor of the class is invoked to properly initialize this memory.\\
+	\end{itemize}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// CPP program to illustrate
+	// use of new keyword
+	#include<iostream>
+	using namespace std;
+	class car
+	{
+		string name;
+		int num;
+	
+		public:
+			car(string a, int n)
+			{
+				cout << "Constructor called" << endl;
+				this ->name = a;
+				this ->num = n;
+			}
+	
+			void enter()
+			{
+				cin>>name;
+				cin>>num;
+			}
+	
+			void display()
+			{
+				cout << "Name: " << name << endl;
+				cout << "Num: " << num << endl;
+			}
+	};
+	
+	int main()
+	{
+		// Using new keyword
+		car *p = new car("Honda", 2017);
+		p->display();
+	}
+		
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Constructor called\\
+	Name: Honda\\
+	Num: 2017
+	\end{tcolorbox}
+	%======================================
+	%
+	%	$ Sub_Subsection: Operator New
+	%
+	%======================================
+	\subsubsection{Operator New}
+	Operator new is a \textbf{function} that allocates raw memory and conceptually a bit similar to \hl{malloc()}.
+	\begin{itemize}
+		\item It is the mechanism of overriding the default heap allocation logic.\\
+		\item It doesn’t initializes the memory i.e constructor is not called. However, after our overloaded new returns, the compiler then automatically calls the constructor also as applicable.\\
+		\item It’s also possible to overload operator new either globally, or for a specific class\\
+	\end{itemize}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// CPP program to illustrate
+	// use of operator new
+	#include<iostream>
+	#include<stdlib.h>
+	
+	using namespace std;
+	
+	class car
+	{
+		string name;
+		int num;
+	
+		public:
+	
+			car(string a, int n)
+			{
+				cout << "Constructor called" << endl;
+				this->name = a;
+				this->num = n;
+			}
+	
+			void display()
+			{
+				cout << "Name: " << name << endl;
+				cout << "Num: " << num << endl;
+			}
+	
+			void *operator new(size_t size)
+			{
+				cout << "new operator overloaded" << endl;
+				void *p = malloc(size);
+				return p;
+			}
+	
+			void operator delete(void *ptr)
+			{
+				cout << "delete operator overloaded" << endl;
+				free(ptr);
+			}
+	};
+	
+	int main()
+	{
+		car *p = new car("HYUNDAI", 2012);
+		p->display();
+		delete p;
+	}
+			
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	new operator overloaded\\
+	Constructor called\\
+	Name:HYUNDAI\\
+	Num:2012\\
+	delete operator overloaded\\
+	\end{tcolorbox}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{importantBox}
+		\begin{itemize}
+			\item Operator vs function: new is an operator as well as a keyword whereas operator new is only a function. \\
+			\item New calls “Operator new”: “new operator” calls “operator new()” , like the way + operator calls operator +().\\
+			\item “Operator new” can be Overloaded: Operator new can be overloaded just like functions allowing us to do customized tasks.\\
+			\item Memory allocation: ‘new expression’ call ‘operator new’ to allocate raw memory, then call constructor.
+		\end{itemize}
+	\end{importantBox}
+	%======================================
+	%
+	%	Subsection: Scope Resolution Operator
+	%
+	%======================================
+	\subsection{Scope Resolution Operator}
+The double colon in the source file (.cpp) is called the scope resolution operator, and it's used for the constructor definition. The scope resolution operator is used to define a particular class' member functions, which have already been declared. Remember that we defined the constructor prototype in the header file. So, basically, MyClass::MyClass() refers to the MyClass() member function - or, in this case, constructor - of the MyClass class.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include "MyClass.h"
+	
+	MyClass::MyClass()
+	{
+	   //ctor
+	}
+
+	\end{lstlisting}
+To use our classes in our main, we need to include the header file. For example, to use our newly created MyClass in main:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include "MyClass.h"
+	using namespace std;
+	
+	int main() {
+	  MyClass obj;
+	}
+
+	\end{lstlisting}
+
+The header declares "what" a class (or whatever is being implemented) will do, while the cpp source file defines "how" it will perform those features.
+
+	%======================================
+	%
+	%	Subsection: Destructor
+	%
+	%======================================
+	\subsection{Destructor}
+	Remember constructors? They're special member functions that are automatically called when an object is created. \textbf{Destructors} are special functions, as well. They're called when an object is destroyed or deleted. Objects are destroyed when they go out of scope, or whenever the delete expression is applied to a pointer directed at an object of a class.\\
+	The name of a destructor will be \underline{exactly the same} as the class, only prefixed with a \textbf{tilde (~)}. A destructor can't \textbf{return} a value or take any \textbf{parameters}. Destructors can be very useful for releasing resources before coming out of the program. This can include closing files, releasing memory, and so on.
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	class MyClass {
+	  public: 
+	    ~MyClass() {
+	     // some code
+	    }
+	};
+	\end{lstlisting}
+
+For example, let's declare a destructor for our MyClass class, in its header file MyClass.h:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	class MyClass
+	{
+	  public:
+	   MyClass();
+	   ~MyClass();
+	};
+	\end{lstlisting}
+
+After declaring the destructor in the header file, we can write the implementation in the source file MyClass.cpp:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	#include "MyClass.h"
+	#include <iostream>
+	using namespace std;
+	
+	MyClass::MyClass()
+	{
+	  cout<<"Constructor"<<endl;
+	}
+	
+	MyClass::~MyClass()
+	{
+	  cout<<"Destructor"<<endl;
+}
+	\end{lstlisting}
+
+Since destructors can't take parameters, they also can't be overloaded. Each class will have just one destructor. Defining a destructor is not mandatory; if you don't need one, you don't have to define one.
+
+
+	%======================================
+	%
+	%	Subsection: Selection Operator
+	%
+	%======================================
+	\subsection{Selection Operator}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#ifndef MYCLASS_H
+	#define MYCLASS_H
+	
+	class MyClass
+	{
+	  public:
+	  MyClass();
+	  protected:
+	  private:
+	};
+	
+	#endif // MYCLASS_H 
+
+	\end{lstlisting}
+\textbf{ifndef} stands for "if not defined". The first pair of statements tells the program to define the \textbf{MyClass} header file if it has not been defined already.
+\textbf{endif} ends the condition. This prevents a header file from being included more than once within one file.
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	//MyClass.h
+	class MyClass
+	{
+	  public:
+	   MyClass();
+	   void myPrint();
+	};
+
+	//MyClass.cpp
+	#include "MyClass.h"
+	#include <iostream>
+	using namespace std;
+	
+	MyClass::MyClass() {
+	}
+	
+	void MyClass::myPrint() {
+	  cout <<"Hello"<<endl;
+	}
+
+	//Main.cpp
+	int main() {
+	    MyClass obj;
+	    obj.myPrint();
+	}
+	\end{lstlisting}
+It's necessary to specify its return type in both the declaration and the definition.\\
+We can also use a pointer to access the object's members.\\
+The following pointer points to the obj object:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	MyClass obj;
+	MyClass *ptr = &obj;
+	\end{lstlisting}
+The arrow member selection operator (->) is used to access an object's members with a pointer.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class MyClass
+	{
+	    public:
+	        MyClass();
+	        void myPrint();
+	};
+	
+	MyClass::MyClass() {
+	}
+	void MyClass::myPrint() {
+	    cout <<"Hello"<<endl;
+	}
+	
+	int main() {
+	    MyClass obj;
+	    MyClass *ptr = &obj;
+	    ptr->myPrint();
+	}
+	\end{lstlisting}
+	\begin{itemize}
+		\item When working with an \textbf{object}, use the \textbf{dot(.)} member selection operator .\\
+		\item When working with a \textbf{pointer} to the object, use the \textbf{arrow (->)} member selection operator.
+	\end{itemize}
+
+Once a \textbf{const} class object has been initialized via the constructor, you cannot modify the object's member variables. This includes both directly making changes to public member variables and calling member functions that set the value of member variables. \hl{const MyClass obj;}. When you've used const to declare an object, you can't change its data members during the object's lifetime.
+
+
+	%======================================
+	%
+	%	Subsection: Constructors and member initializer lists
+	%
+	%======================================
+	\subsection{Constructors and member initializer lists}
+This section is copied from \href{https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/}{GeeksforGeeks.org}.\\
+Initializer List is used in initializing the data members of a class. The list of members to be initialized is indicated with constructor as a comma-separated list followed by a colon. Following is an example that uses the initializer list to initialize x and y of Point class.
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include<iostream>
+	using namespace std;
+	
+	class Point {
+	private:
+		int x;
+		int y;
+	public:
+		Point(int i = 0, int j = 0):x(i), y(j) {}
+		/* The above use of Initializer list is optional as the
+			constructor can also be written as:
+			Point(int i = 0, int j = 0) {
+				x = i;
+				y = j;
+			}
+		*/
+		
+		int getX() const {return x;}
+		int getY() const {return y;}
+	};
+	
+	int main() {
+	Point t1(10, 15);
+	cout<<"x = "<<t1.getX()<<", ";
+	cout<<"y = "<<t1.getY();
+	return 0;
+	}
+	
+	/* OUTPUT:
+	x = 10, y = 15
+	*/
+
+
+	\end{lstlisting}
+The above code is just an example for syntax of the Initializer list. In the above code, x and y can also be easily initialed inside the constructor. But there are situations where initialization of data members inside constructor doesn’t work and Initializer List must be used. Following are such cases:\\
+
+	%======================================
+	%
+	%	$ Sub_Subsection: For initialization of non-static const data members
+	%
+	%======================================
+	\subsubsection{For initialization of non-static const data members}
+const data members must be initialized using Initializer List. In the following example, “t” is a const data member of Test class and is initialized using Initializer List. Reason for initializing the const data member in initializer list is because no memory is allocated separately for const data member, it is folded in the symbol table due to which we need to initialize it in the initializer list. \\
+Also, it is a Parameterised constructor and we don’t need to call the assignment operator which means we are avoiding one extra operation. \\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include<iostream>
+	using namespace std;
+	
+	class Test {
+		const int t;
+	public:
+		Test(int t):t(t) {} //Initializer list must be used
+		int getT() { return t; }
+	};
+	
+	int main() {
+		Test t1(10);
+		cout<<t1.getT();
+		return 0;
+	}
+	
+	/* OUTPUT:
+	10
+	*/
+	\end{lstlisting}
+	%======================================
+	%
+	%	$ Sub_Subsection: For initialization of reference members
+	%
+	%======================================
+	\subsubsection{For initialization of reference members}
+	Reference members must be initialized using Initializer List. In the following example, “t” is a reference member of Test class and is initialized using Initializer List.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Initialization of reference data members
+	#include<iostream>
+	using namespace std;
+	
+	class Test {
+		int &t;
+	public:
+		Test(int &t):t(t) {} //Initializer list must be used
+		int getT() { return t; }
+	};
+	
+	int main() {
+		int x = 20;
+		Test t1(x);
+		cout<<t1.getT()<<endl;
+		x = 30;
+		cout<<t1.getT()<<endl;
+		return 0;
+	}
+	/* OUTPUT:
+		20
+		30
+	*/
+	
+
+	\end{lstlisting}
+	%======================================
+	%
+	%	$ Sub_Subsection:  For initialization of member objects which do not have default constructor
+	%
+	%======================================
+	\subsubsection{For initialization of member objects which do not have default constructor}
+	In the following example, an object “a” of class “A” is data member of class “B”, and “A” doesn’t have default constructor. Initializer List must be used to initialize “a”.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	#include <iostream>
+	using namespace std;
+	
+	class A {
+		int i;
+	public:
+		A(int );
+	};
+	
+	A::A(int arg) {
+		i = arg;
+		cout << "A's Constructor called: Value of i: " << i << endl;
+	}
+	
+	// Class B contains object of A
+	class B {
+		A a;
+	public:
+		B(int );
+	};
+	
+	B::B(int x):a(x) { //Initializer list must be used
+		cout << "B's Constructor called";
+	}
+	
+	int main() {
+		B obj(10);
+		return 0;
+	}
+	/* OUTPUT:
+		A's Constructor called: Value of i: 10
+		B's Constructor called
+	*/
+
+	\end{lstlisting}
+
+If class A had both default and parameterized constructors, then Initializer List is not must if we want to initialize “a” using default constructor, but it is must to initialize “a” using parameterized constructor. \\
+	%======================================
+	%
+	%	$ Sub_Subsection:  For initialization of base class members
+	%
+	%======================================
+	\subsubsection{For initialization of base class members}
+	Like point 3 the parameterized constructor of the base class can only be called using Initializer List.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class A {
+		int i;
+	public:
+		A(int );
+	};
+	
+	A::A(int arg) {
+		i = arg;
+		cout << "A's Constructor called: Value of i: " << i << endl;
+	}
+	
+	// Class B is derived from A
+	class B: A {
+	public:
+		B(int );
+	};
+	
+	B::B(int x):A(x) { //Initializer list must be used
+		cout << "B's Constructor called";
+	}
+	
+	int main() {
+		B obj(10);
+		return 0;
+	}
+	
+
+	\end{lstlisting}
+	%======================================
+	%
+	%	$ Sub_Subsection:  When constructor’s parameter name is same as data member
+	%
+	%======================================
+	\subsubsection{When constructor’s parameter name is same as data member}
+	If constructor’s parameter name is same as data member name then the data member must be initialized either using this pointer or Initializer List. In the following example, both member name and parameter name for A() is “i”.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class A {
+		int i;
+	public:
+		A(int );
+		int getI() const { return i; }
+	};
+	
+	A::A(int i):i(i) { } // Either Initializer list or this pointer must be used
+	/* The above constructor can also be written as
+	A::A(int i) {
+		this->i = i;
+	}
+	*/
+	
+	int main() {
+		A a(10);
+		cout<<a.getI();
+		return 0;
+	}
+	/* OUTPUT:
+		10
+	*/
+
+
+	\end{lstlisting}
+	%======================================
+	%
+	%	$ Sub_Subsection:  For Performance reasons
+	%
+	%======================================
+	\subsubsection{For Performance reasons}
+	It is better to initialize all class variables in Initializer List instead of assigning values inside body. Consider the following example: \\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// Without Initializer List
+	class MyClass {
+		Type variable;
+	public:
+		MyClass(Type a) { // Assume that Type is an already
+						// declared class and it has appropriate
+						// constructors and operators
+		variable = a;
+		}
+	};
+	\end{lstlisting}
+
+Here compiler follows following steps to create an object of type MyClass:
+	\begin{enumerate}
+		\item Type’s constructor is called first for “a”. \\
+		\item The assignment operator of “Type” is called inside body of MyClass() constructor to assign. \hl{variable = a;}\\
+		\item And then finally destructor of “Type” is called for “a” since it goes out of scope.\\
+	\end{enumerate}
+Now consider the same code with MyClass() constructor with Initializer List 
+ 	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	// With Initializer List
+	class MyClass {
+		Type variable;
+	public:
+		MyClass(Type a):variable(a) { // Assume that Type is an already
+						// declared class and it has appropriate
+						// constructors and operators
+		}
+	};
+	\end{lstlisting}
+With the Initializer List, the following steps are followed by compiler: 
+	\begin{enumerate}
+		\item Parameterised constructor of “Type” class is called to initialize: variable(a). The arguments in the initializer list are used to copy construct “variable” directly.  \\
+		\item The destructor of “Type” is called for “a” since it goes out of scope.\\
+	\end{enumerate}
+As we can see from this example if we use assignment inside constructor body there are three function calls: \textbf{constructor + destructor + one addition assignment operator call}. And if we use Initializer List there are only two function calls: \textbf{copy constructor + destructor call}. See \href{https://www.geeksforgeeks.org/output-of-c-program/}{this} post for a running example on this point.
+This assignment penalty will be much more in “real” applications where there will be many such variables. Thanks to ptr for adding this point. 
+	%======================================
+	%
+	%	Subsection: Composition
+	%
+	%======================================
+	\subsection{Composition}
+In C++ Composition, an object is a part of another object. The object that is a part of another object is known as a sub-object. When a C++ Composition is destroyed, then all of its subobjects are destroyed as well. Such as when a car is destroyed, then its motor, frame, and other parts are also destroyed with it.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <string>
+	#include "Birthday.h"
+	
+	class Person {
+	 public:
+	  Person(string n, Birthday b)
+	  : name(n),
+	   bd(b)
+	  {
+	  }
+	 private:
+	  string name;
+	  Birthday bd;
+	};
+	\end{lstlisting}
+In the above code, the \textit{Birthday} class, is used inside the \textit{Person} class. As a summary, composition means adding/combining simple objects in order to create a bigger and more complex object.\\
+One important note in the above example is that we wrote \hl{\#include <string>} and didn't say \hl{.h} but for the \textit{Birthday} library we used \hl{\#include "Birthday.h"} with \textbf{" "} and \hl{.h}. The reason for this action is that the \textbf{string} class is a C++ standard library but the \textit{Birthday} library is written by us in the same directory of our project.\\
+In general, composition serves to keep each individual class relatively simple, straightforward, and focused on performing one task. It also enables each sub-object to be self-contained, allowing for reusability (we can use the Birthday class within various other classes).
+	%======================================
+	%
+	%	Subsection: Friend Functions
+	%
+	%======================================
+	\subsection{Friend Functions}
+Normally, private members of a class cannot be accessed from outside of that class.
+However, declaring a non-member function as a \textbf{friend} of a class allows it to access the class' private members. This is accomplished by including a declaration of this external function within the class, and preceding it with the keyword \hl{friend}.
+In the example below, \textit{someFunc()}, which is not a member function of the class, is a friend of \textit{MyClass} and can access its private members.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+
+	class MyClass {
+	 public:
+	  MyClass() {
+	   regVar = 0;
+	  }
+	 private:
+	  int regVar;
+	    
+	 friend void someFunc(MyClass &obj);
+	};
+	
+	void someFunc(MyClass &obj) {
+	  obj.regVar = 42;
+	  cout << obj.regVar;
+	}
+	\end{lstlisting}
+someFunc() had the ability to modify the private member of the object and print its value.
+Typical use cases of friend functions are operations that are conducted between two different classes accessing private members of both.
+You can declare a function friend across any number of classes.
+Similar to friend functions, you can define a friend class, which has access to the private members of another class.\\
+
+	%======================================
+	%
+	%	Subsection: This
+	%
+	%======================================
+	\subsection{This}
+Every object in C++ has access to its own address through an important pointer called the this pointer.
+Inside a member function this may be used to refer to the invoking object.\\
+Friend functions do not have a this pointer, because friends are not members of a class.\\
+The \textbf{printInfo()} method, in the code below, offers three alternatives for printing the member variable of the class. All three alternatives will produce the same result.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class MyClass {
+	    public:
+	        MyClass(int a) : var(a)
+	        { }
+	        void printInfo() {
+	            cout << var <<endl;
+	            cout << this->var <<endl;
+	            cout << (*this).var <<endl; 
+	        }
+	    private:
+	        int var;
+	};
+	
+	int main() {
+	    MyClass obj(42);
+	    obj.printInfo();
+	}
+	\end{lstlisting}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	42\\
+	42\\
+	42
+	\end{tcolorbox}
+\textbf{this} is a \textbf{pointer} to the object, so the arrow selection operator is used to select the member variable. Note that only member functions have a this pointer.\\
+You may be wondering why it's necessary to use the this keyword, when you have the option of directly specifying the variable.
+The this keyword has an important role in \textbf{operator overloading}.\\
+
+	%======================================
+	%
+	%	Subsection: Operator Overloading
+	%
+	%======================================
+	\subsection{Operator Overloading}
+	Most of the C++ built-in operators can be redefined or overloaded.
+	Thus, operators can be used with user-defined types as well (for example, allowing you to add two objects together).
+	This chart shows the operators that can be overloaded:\\
+	\begin{center}
+		\begin{tabular}{ c | c | c | c | c | c }
+		\hline 
+		+ 		& - 		& * 		&/ 		& \% 		&  \textbf{\^}  \\ \hline
+		\& 	& | 		& ~ 		& ! 		& , 		& = \\ \hline
+		< 		& <= 	& > 		& >= 	& ++ 	& -- \\ \hline
+		<< 	& >> 	& == 	& != 		& \&\& 	& || \\ \hline
+		+= 	& -= 		& *= 		& /= 		& \%= 	& \textbf{\^}\textbf{=} \\ \hline
+		\&= 	& |= 		& <<= 	& >>= 	& [] 		& () \\ \hline
+		-> 	& ->* 	& new 	& new[] 	& delete 	& delete[] \\ \hline
+		\end{tabular}
+	\end{center}
+
+Operators that can't be overloaded include \hl{::},  \hl{.*}, \hl{.}, \hl{?:}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Example Sentence				%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Example:}\\
+	Overloaded operators are functions, defined by the keyword \textbf{operator} followed by the symbol for the operator being defined.
+	An overloaded operator is similar to other functions in that it has a \textbf{return type} and a \textbf{parameter list}.\\
+	In our example we will be overloading the \textbf{+ operator}. It will return an object of our class and take an object of our class as its parameter.
+	\end{tcolorbox}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	class MyClass {
+	 public:
+	  int var;
+	  MyClass() {}
+	  MyClass(int a)
+	  : var(a) { }
+	
+	 // This is where we have overloaded the "+" operator. 
+	  MyClass operator+(MyClass &obj) {
+	   MyClass res;
+	   res.var= this->var+obj.var;
+	   return res; 
+	  }
+	};
+	int main() {
+	    MyClass obj1(12), obj2(55);
+	    MyClass res = obj1+obj2;
+	
+	    cout << res.var;
+	}
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Example Sentence				%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Example:}\\
+	We continue to develop our Queue management system that we made in the previous module.\\
+	You are asked to add a new functionality: adding two queues together. The result should be a new queue, where the elements of the first queue come first, followed by the second queue's elements.\\
+	Given the Queue class, overload the + operator, so that the code in main works and successfully adds two queues.
+	\end{tcolorbox}
+ 	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	
+	#include <iostream>
+	using namespace std;
+	
+	class Queue {
+		int size;
+		int* queue;
+	
+		public:
+		Queue() {
+			size = 0;
+			queue = new int[100];
+		}
+		void add(int data) {
+			queue[size] = data;
+			size++;
+		}
+		void remove() {
+			if (size == 0) {
+				cout << "Queue is empty"<<endl;
+				return;
+			}
+			else {
+				for (int i = 0; i < size - 1; i++) {
+					queue[i] = queue[i + 1];
+				}
+				size--;
+			}
+		}
+		void print() {
+			if (size == 0) {
+				cout << "Queue is empty"<<endl;
+				return;
+			}
+			for (int i = 0; i < size; i++) {
+				cout<<queue[i]<<" <- ";
+			}
+			cout << endl;
+		}
+		//your code goes here
+		Queue operator +(Queue &q1){
+			Queue q3;
+			for (int i = 0 ; i < this->size ; i++){
+				q3.add(this->queue[i]);
+			}
+			for (int i = 0 ; i < q1.size ; i++){
+				q3.add(q1.queue[i]);
+			}
+	        return q3;
+		}
+	
+	};
+	
+	int main() {
+		Queue q1;
+		q1.add(42); q1.add(2); q1.add(8);  q1.add(1);
+		Queue q2;
+		q2.add(3); q2.add(66); q2.add(128);  q2.add(5);
+		Queue q3 = q1+q2;
+		q3.print();
+	
+		return 0;
+	}
+
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	42 <- 2 <- 8 <- 1 <- 3 <- 66 <- 128 <- 5 <-
+	\end{tcolorbox}
+
+
+%====================================================================
+%
+%								Section: Inheritance & Polymorphism
+%
+%====================================================================
+\section{Inheritance \& Polymorphism}
+
+	%======================================
+	%
+	%	Subsection: Inheritance
+	%
+	%======================================
+	\subsection{Inheritance}
+	Inheritance is one of the most important concepts of object-oriented programming.
+	Inheritance allows us to define a class based on another class. This facilitates greater ease in creating and maintaining an application.
+	The class whose properties are inherited by another class is called the \textbf{Base} class. The class which inherits the properties is called the \textbf{Derived} class. The derived class inherits all feature from the base class, and can have its own additional features.\\
+	The idea of inheritance implements the \textbf{is-a} relationship. For example, mammal \textbf{IS-A} animal, dog IS-A mammal, hence dog IS-A animal as well.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	class Mother
+	{
+	 public:
+	  Mother() {};
+	  void sayHi() {
+	    cout << "Hi";
+	  } 
+	};
+	
+	class Daughter 
+	{
+	 public: 
+	  Daughter() {};
+	};
+	\end{lstlisting}
+	The Base class is specified using a \textbf{colon} and an access specifier public means, that all public members of the base class are public in the derived class.
+	In other words, all public members of the Mother class become public members of the Daughter class.
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	class Daughter : public Mother
+	{
+	 public: 
+	  Daughter() {};
+	};
+
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class Mother
+	{
+	    public:
+	        Mother() {};
+	        void sayHi() {
+	            cout << "Hi";
+	        }
+	};
+	
+	class Daughter: public Mother
+	{
+	    public:
+	        Daughter() {};
+	};
+	
+	int main() {
+	    Daughter d;
+	    d.sayHi();
+	}
+
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Hi
+	\end{tcolorbox}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{importantBox}
+		\begin{itemize}
+			\item A derived class inherits all base class methods with the following exceptions:
+			\begin{itemize}
+				\item Constructors, Destructors
+				\item Overloaded operators
+				\item The friend functions
+			\end{itemize}
+		\end{itemize}
+	\end{importantBox}
+A class can be derived from multiple classes by specifying the base classes in a comma-separated list. For example: \hl{class Daughter: public Mother, public Father\{...\};}
+	%======================================
+	%
+	%	$ Sub_Subsection: "Protected" Access Specifier
+	%
+	%======================================
+	\subsubsection{"Protected" Access Specifier}
+	There is one more access specifier - \textbf{protected}.
+	A protected member variable or function is very similar to a private member, with \underline{one difference} -  \textbf{it can be accessed in the derived classes}.
+	%======================================
+	%
+	%	$ Sub_Subsection: Type of Inheritance
+	%
+	%======================================
+	\subsubsection{Type of Inheritance}
+	Access specifiers are also used to specify the type of inheritance.
+	Remember, we used public to inherit the Daughter class:\\
+	\hl{class Daughter: public Mother}\\[10pt]
+	\textit{private} and \textit{protected} access specifiers can also be used here.\\
+	\begin{itemize}
+		\item \textbf{Public} Inheritance: public members of the base class become public members of the derived class and protected members of the base class become protected members of the derived class. A base class's private members are never accessible directly from a derived class, but can be accessed through calls to the public and protected members of the base class. \\
+		\item \textbf{Protected} Inheritance: public and protected members of the base class become protected members of the derived class. \\
+		\item \textbf{Private} Inheritance: public and protected members of the base class become private members of the derived class.
+	\end{itemize}
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+	Public inheritance is the most commonly used inheritance type. If no access specifier is used when inheriting classes, the type becomes \textbf{private} by default.
+	\end{importantBox}
+
+When inheriting classes, the base class' constructor and destructor are not inherited.
+However, they are \underline{being called} when an object of the derived class is \underline{created} or \underline{deleted}.
+To further explain this behavior, let's create a sample class that includes a constructor and a destructor:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class Mother {
+	    public:
+	        Mother() 
+	        {
+	            cout <<"Mother Contructor"<<endl;
+	        }
+	        ~Mother()
+	        {
+	            cout <<"Mother Destructor"<<endl;
+	        }
+	};
+	
+	
+	class Daughter: public Mother{
+	
+	    public:
+	
+	        Daughter(){
+	            cout << "Doughter's Contructor"<<endl;
+	        }
+	
+	        ~Daughter(){
+	            cout << "Doughter's Destructor"<<endl;
+	        }
+	
+	};
+	int main() {
+	    Daughter d;
+	}
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Mother Contructor\\
+	Doughter's Contructor\\
+	Doughter's Destructor\\
+	Mother Destructor
+	\end{tcolorbox}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item Note that the base class' constructor is called first, and the derived class' constructor is called next.\\
+			\item When the object is destroyed, the derived class's destructor is called, and then the base class' destructor is called.\\
+		\end{itemize}
+		You can think of it as the following: The derived class needs its base class in order to work - that is why the base class is set up first.
+	\end{importantBox}
+
+	%======================================
+	%
+	%	Subsection: Polymorphism
+	%
+	%======================================
+	\subsection{Polymorphism}
+	The word polymorphism means \textbf{"having many forms"}.
+	Typically, polymorphism occurs when there is a hierarchy of classes and they are related by inheritance.\\
+	C++ polymorphism means that a call to a member function will cause a different implementation to be executed depending on the type of object that invokes the function. \textbf{Simply, polymorphism means that a single function can have a number of different implementations.}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	class Ninja: public Enemy {
+	 public:
+	  void attack() {
+	   cout << "Ninja! - "<<attackPower<<endl;
+	  }
+	};
+	
+	class Monster: public Enemy {
+	 public:
+	  void attack() {
+	   cout << "Monster! - "<<attackPower<<endl;
+	  }
+	};
+	\end{lstlisting}
+
+	Ninja and Monster inherit from Enemy, so all Ninja and Monster objects are Enemy objects. This allows us to do the following:\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	Monster m;
+	Ninja n;
+	Enemy *e1 = &n;
+	Enemy *e2 = &m;	
+	e1 -> attack();
+	e2 -> attack();
+	\end{lstlisting}
+	%======================================
+	%
+	%	Subsection: Virtual Functions
+	%
+	%======================================
+	\subsection{Virtual Functions}
+Continuing on with our game example, we want every Enemy to have an \textit{attack()} function.
+To be able to call the corresponding \textit{attack()} function for each of the derived classes using \textit{Enemy} pointers, we need to declare the base class function as \textbf{virtual}.
+Defining a virtual function in the base class, with a corresponding version in a derived class, allows\textbf{ polymorphism} to use Enemy pointers to call the derived classes' functions.
+Every derived class will \textbf{override} the attack() function and have a separate implementation:\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	class Enemy {
+	 public:
+	  virtual void attack() {
+		// The derived classes will override this function.
+		// we can also define a body for it in here.
+		cout << "The Enemy Attacks" << endl;
+	  }
+	};
+	
+	class Ninja: public Enemy {
+	 public:
+	  void attack() {
+	   cout << "Ninja!"<<endl;
+	  }
+	};
+	
+	class Monster: public Enemy {
+	 public:
+	  void attack() {
+	   cout << "Monster!"<<endl;
+	 }		
+	\end{lstlisting}
+
+As the attack() function is declared virtual, it works like a \textbf{template}, telling that the derived class might have an attack() function of its own.\\
+If a function in the base class is virtual, the function's implementation in the derived class is called according to the actual type of the object referred to, regardless of the declared type of the pointer.
+A class that declares or inherits a virtual function is called a \textbf{polymorphic} class.
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class Enemy {
+	    public:
+	        virtual void attack() {
+	            cout << "Enemy!"<<endl;
+	        }
+	};
+	
+	class Ninja: public Enemy {
+	    public:
+	        void attack() {
+	            cout << "Ninja!"<<endl;
+	        }
+	};
+	
+	class Monster: public Enemy {
+	    public:
+	        void attack() {
+	            cout << "Monster!"<<endl;
+	        }
+	};
+	
+	int main() {
+	    Ninja n;
+	    Monster m;
+	    Enemy e;
+	
+	    Enemy *e1 = &n;
+	    Enemy *e2 = &m;
+	    Enemy *e3 = &e;
+	
+	    e1->attack();
+	    // Outputs "Ninja!"
+	
+	    e2->attack();
+	    // Outputs "Monster!"
+	
+	    e3->attack();
+	    // Outputs "Enemy!"
+	}		
+	\end{lstlisting}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Ninja!\\
+	Monster!\\
+	Enemy!
+	\end{tcolorbox}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+	This is how polymorphism is generally used. You have different classes with a function of the same name, and even the same parameters, but with different implementations.
+	\end{importantBox}
+
+	%======================================
+	%
+	%	Subsection: Pure Virtual Functions
+	%
+	%======================================
+	\subsection{Pure Virtual Functions}
+	In some situations you'd want to include a virtual function in a base class so that it may be redefined in a derived class to suit the objects of that class, but that \underline{there is no meaningful definition you could give for the function in the base class}.
+	The virtual member functions without definition are known as \textbf{pure virtual functions}. They basically specify that the derived classes define that function on their own.\\
+	The syntax is to replace their definition by =0 (an equal sign and a zero):\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	class Enemy {
+	 public:
+	  virtual void attack() = 0;
+	}; 		
+	\end{lstlisting}
+The\hl{ = 0} tells the compiler that the function has no body.\\
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item A \textbf{pure virtual function} basically defines, that the derived classes will have that function defined on their own.\\
+			\item Every derived class inheriting from a class with a pure virtual function \textbf{\underline{must}} override that function.\\
+			\item If the pure virtual function is not overridden in the derived class, the code \underline{fails to compile} and results in an \underline{error} when you try to instantiate an object of the derived class.\\
+		\end{itemize}
+	\end{importantBox}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class Enemy {
+	 public:
+	  virtual void attack() = 0;
+	};
+	
+	class Ninja: public Enemy {
+	 public:
+	  void defend() {}
+	};
+	
+	class Monster: public Enemy {
+	 public:
+	  void attack() {
+	   cout << "Monster!"<<endl;
+	  }
+	};
+	
+	int main() {
+		Ninja n;
+		Monster m;
+	
+	}
+		
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	main.cpp: In function 'int main()':\\
+	main.cpp:22:8: error: cannot declare variable 'n' to be of abstract type 'Ninja'\\
+	  Ninja n;\\
+	main.cpp:9:7: note:   because the following virtual functions are pure within 'Ninja':\\
+	 class Ninja: public Enemy \{\\
+	main.cpp:6:16: note:    virtual void Enemy::attack()\\
+	   virtual void attack() = 0;
+	\end{tcolorbox}
+	%======================================
+	%
+	%	$ Sub_Subsection: Abstract Classes
+	%
+	%======================================
+	\subsubsection{Abstract Classes}
+	You \textbf{cannot} create objects of the base class with a pure virtual function.
+	Running the following code will return an \underline{error}:\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	class Enemy {
+	    public:
+	        virtual void attack() = 0;
+	};
+	
+	class Ninja: public Enemy {
+	    public:
+	        void attack() {
+	            cout << "Ninja!"<<endl;
+	        }
+	};
+	
+	class Monster: public Enemy {
+	    public:
+	        void attack() {
+	            cout << "Monster!"<<endl;
+	        }
+	};
+	
+	
+	int main()
+	{
+	    Enemy e;
+	    return 0;
+	}		
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	./Playground/file0.cpp: In function 'int main()':\\
+	./Playground/file0.cpp:26:11: error: cannot declare variable 'e' to be of abstract type 'Enemy'\\
+	   26 |     Enemy e;\\
+	      | \\       
+	./Playground/file0.cpp:4:7: note:   because the following virtual functions are pure within 'Enemy':\\
+	    4 | class Enemy \{
+	      |    \\
+	./Playground/file0.cpp:6:22: note:     'virtual void Enemy::attack()'\\
+	    6 |         virtual void attack() = 0;\\
+	      |     
+	\end{tcolorbox}
+	These classes are called \textbf{abstract}. They are classes that can only be used as base classes, and thus are allowed to have pure virtual functions.
+	You might think that an abstract base class is useless, but it isn't. It can be used to create pointers and take advantage of all its polymorphic abilities.\\
+	%======================================
+	%
+	%	$ Sub_Subsection: Reminding Some Tips
+	%
+	%======================================
+	\subsubsection{Reminding Some Tips}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item Which keyword makes a class members to be accessible only to its derived classes? \textbf{answer:} Protected \\
+			\item The derived class destructor is called before the base class destructor.
+		\end{itemize}
+	\end{importantBox}
+%====================================================================
+%
+%								Section: Templates
+%
+%====================================================================
+\section{Templates}
+	%======================================
+	%
+	%	Subsection: Function Templates
+	%
+	%======================================
+	\subsection{Function Templates}
+	%======================================
+	%
+	%	$ Sub_Subsection: How to Define
+	%
+	%======================================
+	\subsubsection{How to Define}
+	To define a function template, use the keyword \textbf{template}, followed by the template type definition: \hl{template <class T>}\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	template <class T>
+	T sum(T a, T b) {
+	    return a+b;
+	}
+	
+	int main () {
+	    int x=7, y=15;
+	    cout << sum(x, y) << endl;
+	    cout << sum(9.5, 10.75) << endl;
+	}		
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	22\\
+	20.25\\
+	\end{tcolorbox}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+		\begin{itemize}
+			\item When creating a template type parameter, the keyword \textbf{\underline{typename}} may be used as an alternative to the keyword \textbf{\underline{class}}:\\
+			\begin{itemize}
+				\item \hl{template <typename T>} instead of using \hl{template <class T>}\\
+			\end{itemize} 
+			\item In this context, the keywords are identical, but throughout this course, we'll use the keyword class.\\
+			\item Template functions can \emph{save a lot of time} (\textbf{Time Efficiency)}, because they are \emph{written only once}, and work with different types.\\
+			\item Template functions reduce code \textbf{maintenance}, \emph{because duplicate code is reduced significantly}.\\
+			\item \textbf{Enhanced safety} is another advantage in using template functions, since \emph{it's not necessary to manually copy functions and change types}.\\
+		\end{itemize}
+	\end{importantBox}
+	%======================================
+	%
+	%	$ Sub_Subsection: Multiple Generic Data Types
+	%
+	%======================================
+	\subsubsection{Multiple Generic Data Types}
+	Function templates also make it possible to work with multiple generic data types. Define the data types using a comma-separated list.
+	Let's create a function that compares arguments of varying data types (an int and a double), and prints the smaller one.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	template <class T, class U>
+	T smaller(T a, U b) {
+	    return (a < b ? a : b);
+	}
+	
+	int main () {
+	    int x=72;
+	    double y=15.34;
+	    cout << smaller(x, y) << endl;
+	}
+	/*The output converts to an integer, because we specified the function template's return type to be of the same type as the first parameter (T), which is an integer.*/
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	15
+	\end{tcolorbox}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item Remember that when you declare a template parameter, you absolutely must use it in your function definition. Otherwise, the compiler will complain!
+		\end{itemize}
+	\end{importantBox}
+	%======================================
+	%
+	%	Subsection: Class Templates
+	%
+	%======================================
+	\subsection{Class Templates}
+	Just as we can define function templates, we can also define class templates, allowing classes to have members that use template parameters as types.
+	The same syntax is used to define the class template:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	template <class T>
+	class Pair {
+	 private:
+	  T first, second;
+	 public:
+	  Pair (T a, T b):
+	   first(a), second(b) {
+	  }
+	}		
+	\end{lstlisting}
+A specific syntax is required in case you define your member functions \textbf{outside of your class} - for example in a \emph{separate source file}.
+You need to specify the generic type in angle brackets after the class name.
+For example, to have a member function bigger() defined outside of the class, the following syntax is used:\\
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	template <class T>
+	class Pair {
+	 private:
+	  T first, second;
+	 public:
+	  Pair (T a, T b):
+	   first(a), second(b){
+	  }
+	  T bigger();
+	};
+	
+	template <class T>
+	T Pair<T>::bigger() {
+	  ​// some code
+	}
+		
+	\end{lstlisting}
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	template <class T>
+	class Pair {
+	    private:
+	        T first, second;
+	    public:
+	        Pair (T a, T b):
+	        first(a), second(b) { }
+	        T bigger();
+	};
+	
+	template <class T>
+	T Pair<T>::bigger() {
+	    return (first>second ? first : second);
+	}
+	
+	int main()
+	{
+	    Pair <double> obj_dob(23.43, 5.68);
+	    Pair <int> obj_int(10,15);
+	    cout << obj_dob.bigger() << endl;
+	    cout << obj_int.bigger() << endl;
+	    return 0;
+	}
+	
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	23.43\\
+	15
+	\end{tcolorbox}
+	%======================================
+	%
+	%	Subsection: Template Specialization
+	%
+	%======================================
+	\subsection{Template Specialization}
+	In case of regular class templates, the way the class handles different data types is the same; the same code runs for all data types.
+	\textbf{Template specialization} allows for the definition of a different implementation of a template when a specific type is passed as a template argument.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Problem Definition Box			%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{problemDefBox}
+	For example, we might need to handle the character data type in a different manner than we do numeric data types. To specify different behavior for the data type char, we would create a template specialization.
+	\end{problemDefBox} 	
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	template <class T>
+	class MyClass {
+	    public:
+	        MyClass (T x) {
+	            cout <<x<<" -  not a char"<<endl;
+	        }
+	};
+	
+	template < >
+	class MyClass<char> {
+	    public:
+	        MyClass (char x) {
+	            cout <<x<<" is a char!"<<endl;
+	        }
+	};
+	
+	int main () {
+	    MyClass<int> ob1(42);
+	    MyClass<double> ob2(5.47);
+	    MyClass<char> ob3('s');
+	}
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	42 -  not a char\\
+	5.47 -  not a char\\
+	s is a char!
+	\end{tcolorbox}
+	First of all, notice that we precede the class name with \textbf{template<>}, including an \emph{empty parameter} list. This is because all types are known and no template arguments are required for this specialization, but still, it is the specialization of a class template, and thus it requires to be noted as such. But more important than this prefix, is the \textbf{<char>} specialization parameter after the class template name. \textbf{This specialization parameter itself identifies the type for which the template class is being specialized (char)}. In the example above, the first class is the generic template, while the second is the specialization. If necessary, your specialization can indicate a completely different behavior from the behavior of the generic template.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item Keep in mind that there is no member "inheritance" from the generic template to the specialization, so all members of the template class specializations must be defined on their own.
+		\end{itemize}
+	\end{importantBox}
+
+%====================================================================
+%
+%								Section: Exceptions
+%
+%====================================================================
+\section{Exceptions}
+C++ exception handling is built upon three keywords: \textbf{try, catch, and throw}.
+	\begin{itemize}
+		\item \textbf{throw:} is used to throw an exception when a problem shows up. In the throw statement, the operand determines a type for the exception. \textbf{This can be any expression}. The type of the expression's result will determine the type of the exception thrown.
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	int motherAge = 29;
+	int sonAge = 36;
+	if (sonAge > motherAge) {
+	  throw "Wrong age values";
+	}		
+	\end{lstlisting}
+
+		\item \textbf{try:} A try block identifies a block of code that will activate specific exceptions. It's followed by one or more catch blocks.
+		\item \textbf{catch:} The catch keyword represents a block of code that executes when a particular exception is thrown.
+	\end{itemize} 
+Code that could generate an exception is surrounded with the \emph{try/catch block}. You can specify what type of exception you want to catch by the exception.
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	using namespace std;
+	
+	int main()
+	{
+	    try {
+	        int motherAge = 29;
+	        int sonAge = 36;
+	        if (sonAge > motherAge) {
+	            throw 99;
+	        }
+	    }
+	    catch (int x) {
+	        cout<<"Wrong age values - Error "<<x;
+	    }
+	
+	    return 0;
+}		
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+	Wrong age values - Error 99
+	\end{tcolorbox}
+	The \emph{try block} throws the exception, and the \emph{catch block} then handles it.
+	The error code 99, which is an integer, appears in the throw statement, so it results in an exception of type int.
+	\textbf{Multiple catch statements may be listed to handle various exceptions in case multiple exceptions are thrown by the try block.}
+	It's possible to specify that your catch block handles any type of exception thrown in a try block. To accomplish this, add an \textbf{ellipsis (...)} between the parentheses of catch:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	try {
+	  // code
+	} catch(...) {
+	  // code to handle exceptions
+	}		
+	\end{lstlisting}
+%====================================================================
+%
+%								Section: Working With Files
+%
+%====================================================================
+\section{Working With Files}
+	Another useful C++ feature is the ability to read and write to files. That requires the standard C++ library called \textbf{fstream}.
+	Three new data types are defined in \textbf{fstream}:
+	\begin{itemize}
+		\item \textbf{ofstream:} Output file stream that creates and writes information to files. \\
+		\item \textbf{ifstream:} Input file stream that reads information from files.  \\
+		\item \textbf{fstream:}  General file stream, with both ofstream and ifstream capabilities that allow it to create, read, and write information to files. 
+	\end{itemize}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <fstream>	
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+		\begin{itemize}
+			\item To perform file processing in C++, header files \hl{<iostream>} and \hl{<fstream>} must be included in the C++ source file.
+			\item These classes are derived directly or indirectly from the classes \textbf{istream} and \textbf{ostream}. We have already used objects whose types were these classes: \textbf{cin} is an object of class \emph{istream} and \textbf{cout} is an object of class \emph{ostream}.
+		\end{itemize}
+	\end{importantBox}
+	%======================================
+	%
+	%	Subsection: Opening a File
+	%
+	%======================================
+	\subsection{Sample}
+	A file must be opened before you can read from it or write to it.
+	Either the \textbf{ofstream} or \textbf{fstream} object may be used to open a file for writing.\\
+	Let's open a file called "test.txt" and write some content to it:
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <fstream>
+	using namespace std;
+	
+	int main() {
+	  ofstream MyFile;
+	  MyFile.open("test.txt");
+	
+	  MyFile << "Some text. \n";
+	  MyFile.close();
+	}		
+	\end{lstlisting}
+	The above code creates an \emph{ofstream} object called MyFile, and uses the open() function to open the \emph{"test.txt"} file on the file system. As you can see, the same stream output operator is used to write into the file. If the specified file does not exist, the open function will create it automatically. You also have the option of specifying a path for your file in the open function, since it can be in a location other than that of your project. When you've finished working with a file, close it using the member function \hl{close()}.\\
+You can also provide the path to your file using the \emph{ofstream} objects constructor, instead of calling the open function.
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <fstream>
+	using namespace std;
+	
+	int main() {
+	  ofstream MyFile("test.txt");
+	
+	  MyFile << "This is awesome! \n";
+	  MyFile.close();
+	}		
+	\end{lstlisting}.
+Under certain circumstances, such as when you don't have file permissions, the open function can fail.
+The \hl{is\_open()} member function checks whether the \textbf{file is open and ready to be accessed}.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <fstream>
+	using namespace std;
+	
+	int main() {
+	  ofstream MyFile("test.txt");
+	
+	  if (MyFile.is_open()) {
+	   MyFile << "This is awesome!  The file is ready/open\n";
+	  }
+	  else {
+	   cout << "Something went wrong";
+	  }
+	  MyFile.close();
+	}		
+	\end{lstlisting}
+An optional second parameter of the open function defines the \textbf{mode} in which the file is opened. This list shows the supported modes.\\
+	\begin{center}
+		\begin{tabular}{ l | l }
+		\hline 
+		\textcolor{Midnightblue}{Mode Paramater} &  \textcolor{Midnightblue}{Meaning} \\ \hline 
+		ios::app & Append to the end of file \\ \hline
+		ios::ate & Go the end of file while opening \\ \hline
+		ios::binary & Open file in binary mode \\ \hline
+		ios::in & Open file in read\_only mode \\ \hline
+		ios::out & Open file for writing only \\ \hline
+		ios:: trunc & Delete the contents of the file if it exists \\ \hline
+		\hline
+		\end{tabular}
+	\end{center}
+All these flags can be combined using the bitwise operator \textbf{OR (|)}.\\
+	%--------------------------------------------------------------------%
+	%											%
+	%				Problem Definition Box			%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{problemDefBox}
+	For example, to open a file in write mode and truncate it, in case it already exists, use the following syntax:
+	\end{problemDefBox} 
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	ofstream outfile;
+	outfile.open("file.dat", ios::out | ios::trunc );	
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Problem Definition Box			%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{problemDefBox}
+	Read all contents of a file
+	\end{problemDefBox} 
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+	#include <iostream>
+	#include <fstream>
+	using namespace std;
+	
+	int main () {
+	    ofstream MyFile1("test.txt");
+	    
+	    MyFile1 << "This is awesome! \n";
+	    MyFile1.close();
+	
+	    string line;
+	    ifstream MyFile("test.txt");
+	    while ( getline (MyFile, line) ) {
+	        cout << line << '\n';
+	    }
+	    MyFile.close();
+	}		
+	\end{lstlisting}
+The \hl{getline()} function reads characters from an input stream and places them into a string.
+%====================================================================
+%
+%								Section: 
+%
+%====================================================================
+
+%====================================================================
+%
+%								Section: 
+%
+%====================================================================
+
+%====================================================================
+%
+%								Section: Sample
+%
+%====================================================================
+\section{}
+	%======================================
+	%
+	%	Subsection: 
+	%
+	%======================================
+	\subsection{Sample}
+
+	%======================================
+	%
+	%	$ Sub_Subsection: 
+	%
+	%======================================
+	\subsubsection{Sample}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Problem Definition Box			%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{problemDefBox}
+
+	\end{problemDefBox} 
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+		
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+
+	\end{tcolorbox}
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item
+		\end{itemize}
+	\end{importantBox}
+
+%***********************************
+%			Items
+%***********************************
+
+%\begin{itemize}
+	%\item \\
+	%\item \\
+	%\item 
+%\end{itemize}
+
+%====================================================================
+%
+%								End of Document
+%
+%====================================================================
+
+
+\end{document}
