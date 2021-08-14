@@ -1,5 +1,9 @@
-%%%% https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
-\documentclass[10pt , a4paper]{article}						   
+%====================================================================
+%
+%								Packages
+%
+%====================================================================
+\documentclass[12pt , a4paper]{article}						   
 \usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{fancyhdr , lipsum}
 \usepackage{mathptmx}
@@ -19,19 +23,44 @@
 \usepackage{tcolorbox}
 \usepackage[english]{babel}
 \usepackage[export]{adjustbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{stmaryrd} % used for arrows
+%====================================================================
+%
+%								Defined Colors
+%
+%====================================================================
+% http://latexcolor.com/
+\usepackage{color}
+\definecolor{lightGrey}{rgb}{105,105,105}
+\definecolor{azure}{rgb}{0.94, 1.0, 1.0}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{aureolin}{rgb}{0.99, 0.93, 0.0}
+\definecolor{bananamania}{rgb}{0.98, 0.91, 0.71}
+\definecolor{bazaar}{rgb}{0.6, 0.47, 0.48}
+\definecolor{blizzardblue}{rgb}{0.67, 0.9, 0.93}
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{charcoal}{rgb}{0.21, 0.27, 0.31}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\definecolor{cream}{rgb}{1.0, 0.99, 0.82}
+\definecolor{Midnightblue}{RGB}{34,34,103}
+%====================================================================
+%
+%								Code Highlighter Package
+%
+%====================================================================
+% Include this package if not already included: \usepackage{color}
 \usepackage[T1]{fontenc}
 \usepackage{inconsolata}
-
-\usepackage{color}
-
+\usepackage{listings}
 \definecolor{pblue}{rgb}{0.13,0.13,1}
 \definecolor{pgreen}{rgb}{0,0.5,0}
 \definecolor{pred}{rgb}{0.9,0,0}
 \definecolor{pgrey}{rgb}{0.46,0.45,0.48}
 
-\usepackage{listings}
 \lstset{language=Java,
   showspaces=false,
   showtabs=false,
@@ -46,244 +75,340 @@
   moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Topic}{Chain of Responsibility Design Pattern}
-%%%%%%%%%%%%%%%% Header/Footer %%%%%%%%%
+
+\definecolor{background}{RGB}{39, 40, 34}
+\definecolor{string}{RGB}{230, 219, 116}
+\definecolor{comment}{RGB}{117, 113, 94}
+\definecolor{normal}{RGB}{248, 248, 242}
+\definecolor{identifier}{RGB}{166, 226, 46}
+
+\lstset{
+  language=C++,                			% choose the language of the code
+  numbers=left,                   		% where to put the line-numbers
+  stepnumber=1,                   		% the step between two line-numbers.        
+  numbersep=5pt,                  		% how far the line-numbers are from the code
+  numberstyle=\tiny\color{black}\ttfamily,
+  backgroundcolor=\color{background},  		% choose the background color. You must add \usepackage{color}
+  showspaces=false,               		% show spaces adding particular underscores
+  showstringspaces=false,         		% underline spaces within strings
+  showtabs=false,                 		% show tabs within strings adding particular underscores
+  tabsize=4,                      		% sets default tabsize to 2 spaces
+  captionpos=b,                   		% sets the caption-position to bottom
+  breaklines=true,                		% sets automatic line breaking
+  breakatwhitespace=true,         		% sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 		% show the filename of files included with \lstinputlisting;
+  basicstyle=\color{normal}\ttfamily,					% sets font style for the code
+  keywordstyle=\color{magenta}\ttfamily,	% sets color for keywords
+  stringstyle=\color{string}\ttfamily,		% sets color for strings
+  commentstyle=\color{comment}\ttfamily,	% sets color for comments
+  emph={format_string, eff_ana_bf, permute, eff_ana_btr},
+  emphstyle=\color{identifier}\ttfamily
+}
+
+\definecolor{mygray}{rgb}{0.4,0.4,0.4}
+\definecolor{mygreen}{rgb}{0,0.8,0.6}
+\definecolor{myorange}{rgb}{1.0,0.4,0}
+\definecolor{includeColor}{RGB}{197,134,192}
+\definecolor{myblue}{RGB}{86,156,214}
+\lstset{
+language=C++,  
+commentstyle=\color{mygreen},
+frame=single,
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny\color{mygray},
+keywordstyle=\color{myblue},
+showspaces=false
+basicstyle=\color{normal}\ttfamily,	
+showstringspaces=false,
+stringstyle=\color{myorange},
+tabsize=2
+}
+
+
+
+\lstset{
+  emph = {std,include},
+  emphstyle = \color{includeColor}
+}
+
+%\begin{lstlisting}[language=java]
+%\end{lstlisting}
+
+%====================================================================
+%
+%								Output Box
+%
+%====================================================================
+
+%\begin{tcolorbox}
+%\textbf{Output:}\\
+%>> g++ -o program main.cpp\\
+%\end{tcolorbox}
+
+%% Custom TcolorBox 
+
+
+%%%%%%%%%% Sample Box %%%%%%%%%%%%%%%%
+\newtcolorbox{BoxName}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  title    = {#3},
+  #1,
+}
+
+%%%%%%%%%% Important Box %%%%%%%%%%%%%%%%
+\definecolor{imp_box_green_title}{RGB}{191,254,192}
+\definecolor{imp_box_green_bg}{RGB}{230,255,230}
+\definecolor{imp_box_blue_title}{RGB}{0,0,139}
+
+\newtcolorbox{importantBox}[1][]
+{
+  colframe = {imp_box_green_title},
+  colback  = {imp_box_green_bg},
+  coltitle = {imp_box_green_title},  
+  title    = {\textcolor{imp_box_blue_title}{\textbf{Attention}}},
+  #1,
+}
+
+%%%%%%%%%% Problem Definition Box %%%%%%%%%%%%%%%%
+\definecolor{prob_box_white_title}{RGB}{145,81,23}
+\definecolor{prob_box_chocolate_bg}{RGB}{210,105,30}
+\definecolor{prob_box_white_text}{RGB}{255,255,255}
+\definecolor{prob_box_paleGreen_text}{RGB}{245,245,220}
+
+
+\newtcolorbox{problemDefBox}[1][]
+{
+  colframe = {prob_box_white_title},
+  colback  = {prob_box_chocolate_bg},
+  coltitle = {prob_box_white_title},  
+ coltext={prob_box_paleGreen_text},
+  title    = {\textcolor{prob_box_white_text}{\textbf{Problem}}},
+  #1,
+}
+%====================================================================
+%
+%								Text Highlighter Package
+%
+%====================================================================
+\usepackage{xcolor}
+%\colorbox{pink}{highlight}
+%\newcommand{\hl}[1]{\colorbox{coolblack}{\color{cream}\textbf{#1}\color{black}}}
+%====================================================================
+%
+%								Some Useful Tips
+%
+%====================================================================
+
+%***********************************
+%			Items
+%***********************************
+
+%\begin{itemize}
+%\item \\[7pt]
+%\end{itemize}
+
+%====================================================================
+%
+%								Variables
+%
+%====================================================================
+%\newcommand{}[1]{}
+\newcommand{\dateOfWritingThisBooklet}{July 2021}
+\newcommand{\hl}[1]{\colorbox{coolblack}{\color{cream}\textbf{#1}\color{black}}}
+\newcommand{\bs}{$\backslash$}
+\newcommand{\arrow}{$\shortrightarrow$}
+
+
+%====================================================================
+%
+%								Header / Footer
+%
+%====================================================================
 \renewcommand{\footrulewidth}{0.4pt}% default is 0pt
 \pagestyle{fancy}
 \fancyhf{}
-\chead{\textbf{\Topic}}
-\rhead{Derek Banas - Youtube - 2012}
-\lhead{Java Design Patterns}
+\chead{}
+\rhead{}
+\lhead{C++ Tutorial}
 \cfoot{Page \thepage}
 \lfoot{Hossein Dehghanipour}
-\rfoot{\today}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rfoot{\dateOfWritingThisBooklet}
+%====================================================================
+%
+%								Start of The Document
+%
+%====================================================================
 \begin{document}
+%====================================================================
+%
+%								First Page (Author, ...)
+%
+%====================================================================
+\thispagestyle{empty}
+ \begin{center}
 
-\huge{\textbf{\Topic}}
-\large
-\\[7pt]
-%%%%% Description
-\begin{itemize}
-   \item This pattern sends data to an object and if that object can't use it, it sends it to any number of other objects that may be able to use it.  \\[3pt]
-	\begin{itemize}
-		 \item Create 4 objects that can either add, subtract, multiply, or divide. \\[3pt]
-		 \item Send 2 numbers and a command and allow these 4 objects to decide which can handle the requested calculation. \\[3pt]
-	\end{itemize}
-  % \item . \\[3pt]
-  % \item \\[3pt]
-   %\item \\[3pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{16pt}{16pt}
+\selectfont 
+In The Name Of God
+}
+\\[60pt]
+ %picture
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{c-logo-icon-.png}
+\caption*{}
+\label{f-0-0}
+\end{figure}
+{
+\centering
+\fontfamily{titr}  
+\fontsize{14pt}{14pt}
+\selectfont 
+C++ Tutorial
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+Author : Hossein Dehghanipour
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+\begin{tabular}{l | l}
+References:	&	 \href{www.sololearn.com}{Sololearn.com}\\ [5pt]
+				&	 \href{https://www.geeksforgeeks.org/}{GeeksforGeeks.org}\\[5pt]
+				&	 \href{https://www.youtube.com/watch?v=DamuE8TM3xo&list=PLGLfVvz_LVvQ9S8YSV0iDsuEU8v11yP9M}{Youtube - Derek Banas}
+\end{tabular}
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+July - August 2021
+}
 
-\end{itemize}
+\end{center}
+ 
 
-
+ 
+\setmainfont{Times New Roman}
 \newpage
 
-%%%%%%%%%%
+%====================================================================
+%
+%								Table of Content
+%
+%====================================================================
+\tableofcontents
+\newpage
 
-\small
-\begin{lstlisting}[language=java]
 
-//===================================
-// AddNumbers.java
-public class AddNumbers implements Chain{
-
-	private  Chain nextInChain;
-	
-	// Defines the next Object to receive the
-	// data if this one can't use it
-	
-	public void setNextChain(Chain nextChain) {
-		
-		nextInChain = nextChain;
-		
-	}
-
-	// Tries to calculate the data, or passes it
-	// to the Object defined in method setNextChain()
-	
-	public void calculate(Numbers request) {
-		
-		if(request.getCalcWanted() == "add"){
-			
-			System.out.print(request.getNumber1() + " + " + request.getNumber2() + " = "+
-					(request.getNumber1()+request.getNumber2()));
-			
-		} else {
-			
-			nextInChain.calculate(request);
-			
-		}	
-	}
-}
- 
-//===================================
-// Chain.java
-// The chain of responsibility pattern has a 
-// group of objects that are expected to between
-// them be able to solve a problem. 
-// If the first Object can't solve it, it passes
-// the data to the next Object in the chain
-
-public interface Chain {
-
-	// Defines the next Object to receive the data
-	// if this Object can't process it
-	
-	public void setNextChain(Chain nextChain);
-	
-	// Either solves the problem or passes the data
-	// to the next Object in the chain
-	
-	public void calculate(Numbers request);
-	
-}
- 
-//===================================
-// DivideNumbers.java
-public class DivideNumbers implements Chain{
-
-	private  Chain nextInChain;
-	
-	@Override
-	public void setNextChain(Chain nextChain) {
-		
-		nextInChain = nextChain;
-		
-	}
-
-	@Override
-	public void calculate(Numbers request) {
-		
-		if(request.getCalcWanted() == "div"){
-			
-			System.out.print(request.getNumber1() + " / " + request.getNumber2() + " = "+
-					(request.getNumber1()/request.getNumber2()));
-			
-		} else {
-			
-			System.out.print("Only works for add, sub, mult, and div");
-			
-		}
-	}
-}
- 
-//===================================
-// MultNumbers.java
-public class MultNumbers implements Chain{
-
-	private  Chain nextInChain;
-	
-	@Override
-	public void setNextChain(Chain nextChain) {
-		
-		nextInChain = nextChain;
-		
-	}
-
-	@Override
-	public void calculate(Numbers request) {
-		
-		if(request.getCalcWanted() == "mult"){
-			
-			System.out.print(request.getNumber1() + " * " + request.getNumber2() + " = "+
-					(request.getNumber1()*request.getNumber2()));
-			
-		} else {
-			
-			nextInChain.calculate(request);
-			
-		}	
-	}
-}
- 
-//===================================
-// Numbers.java
-// This object will contain 2 numbers and a
-// calculation to perform in the form of a String
-
-public class Numbers {
-
-	private int number1;
-	private int number2;
-	
-	private String calculationWanted;
-	
-	public Numbers(int newNumber1, int newNumber2, String calcWanted){
-		
-		number1 = newNumber1;
-		number2 = newNumber2;
-		calculationWanted = calcWanted;
-		
-	}
-	
-	public int getNumber1(){ return number1; }
-	public int getNumber2(){ return number2; }
-	public String getCalcWanted(){ return calculationWanted; }
-	
-}
- 
-//===================================
-// SubtractNumbers.java
-public class SubtractNumbers implements Chain{
-
-	private  Chain nextInChain;
-	
-	@Override
-	public void setNextChain(Chain nextChain) {
-		
-		nextInChain = nextChain;
-		
-	}
-
-	@Override
-	public void calculate(Numbers request) {
-		
-		if(request.getCalcWanted() == "sub"){
-			
-			System.out.print(request.getNumber1() + " - " + request.getNumber2() + " = "+
-					(request.getNumber1()-request.getNumber2()));
-			
-		} else {
-			
-			nextInChain.calculate(request);
-			
-		}
-		
-	}
-}
- 
-//===================================
-// TestCalcChain.java
-public class TestCalcChain {
-	
-	public static void main(String[] args){
-		
-		// Here I define all of the objects in the chain
-		
-		Chain chainCalc1 = new AddNumbers();
-		Chain chainCalc2 = new SubtractNumbers();
-		Chain chainCalc3 = new MultNumbers();
-		Chain chainCalc4 = new DivideNumbers();
-		
-		// Here I tell each object where to forward the
-		// data if it can't process the request
-		
-		chainCalc1.setNextChain(chainCalc2);
-		chainCalc2.setNextChain(chainCalc3);
-		chainCalc3.setNextChain(chainCalc4);
-		
-		// Define the data in the Numbers Object
-		// and send it to the first Object in the chain
-		
-		Numbers request = new Numbers(4,2,"add");
-		
-		chainCalc1.calculate(request);
-		
-	}
-}
+%====================================================================
+%
+%								Section: 
+%
+%====================================================================
  
 
-\end{lstlisting}
+
+%====================================================================
+%
+%								Section: 
+%
+%====================================================================
+
+%====================================================================
+%
+%								Section: Sample
+%
+%====================================================================
+\section{}
+	%======================================
+	%
+	%	Subsection: 
+	%
+	%======================================
+	\subsection{Sample}
+
+	%======================================
+	%
+	%	$ Sub_Subsection: 
+	%
+	%======================================
+	\subsubsection{Sample}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Problem Definition Box			%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{problemDefBox}
+
+	\end{problemDefBox} 
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=C++]
+		
+	\end{lstlisting}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+
+	\end{tcolorbox}
+
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item
+		\end{itemize}
+	\end{importantBox}
+
+%***********************************
+%			Items
+%***********************************
+
+%\begin{itemize}
+	%\item \\
+	%\item \\
+	%\item 
+%\end{itemize}
+
+%====================================================================
+%
+%								End of Document
+%
+%====================================================================
+
+
 \end{document}
