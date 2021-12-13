@@ -1,3 +1,4 @@
+
 %====================================================================
 %
 %								License
@@ -215,6 +216,13 @@
 \newcommand{\arrow}{$\shortrightarrow$}
 \newcommand{\google}{\href{https://www.google.com/}{\color{google_logo_color_blue}G\color{google_logo_color_red}o\color{google_logo_color_yellow}o\color{google_logo_color_blue}g\color{google_logo_color_green}l\color{google_logo_color_red}e\color{black}} \. }
 
+\newcommand{\courseName}{}
+\newcommand{\assignmentNumber}{}
+\newcommand{\assignmentName}{}
+\newcommand{\courseProfessor}{}
+\newcommand{\taName}{}
+\newcommand{\author}{}
+\newcommand{\writingMonth}{}
 
 %====================================================================
 %
@@ -225,11 +233,11 @@
 \pagestyle{fancy}
 \fancyhf{}
 \chead{}
-\rhead{Assignment 2}
-\lhead{Programming In Java}
+\rhead{\assignmentNumber}
+\lhead{\assignmentName}
 \cfoot{Page \thepage}
 \lfoot{Vrije Universiteit Brussel}
-\rfoot{October 2021-22}
+\rfoot{\writingMonth}
 %====================================================================
 %
 %								Start of The Document
@@ -300,7 +308,7 @@
 \fontfamily{titr}  
 \fontsize{18pt}{18pt}
 \selectfont 
-Programming In Java
+\assignmentName
 }
 \\[20pt]
 {
@@ -308,7 +316,7 @@ Programming In Java
 \fontfamily{titr}  
 \fontsize{16pt}{16pt}
 \selectfont 
-Assignment 3
+\assignmentNumber
 }
 \\[20pt]
 {
@@ -317,8 +325,9 @@ Assignment 3
 \fontsize{12pt}{12pt}
 \selectfont 
 \begin{tabular}{r l}
-Professor:			&	Dr. Lesley De Cruz\\[5pt]
-TA:				&	Hossein Dehghanipour\\[5pt]
+\textcolor{blue}{Professor:}			&	\courseProfessor\\[7pt]
+\textcolor{blue}{TA:}				&	\taName\\[7pt]
+\textcolor{blue}{Author:}
 
 \end{tabular}
 }
@@ -328,7 +337,7 @@ TA:				&	Hossein Dehghanipour\\[5pt]
 \fontfamily{titr}  
 \fontsize{12pt}{12pt}
 \selectfont 
-November 2021
+\writingMonth
 }
 
 \end{center}
