@@ -1,0 +1,467 @@
+
+%====================================================================
+%
+%								License
+%
+%====================================================================
+%This document is released under MIT License. To put it in a nutshell, This means that you can use the source codes in any open source projects or contributions. Attribution is not mandatory but appreciated.
+%
+%	Hossein Dehghanipour
+%	September 2021
+
+
+%====================================================================
+%
+%								Packages
+%
+%====================================================================
+\documentclass[12pt , a4paper]{article}						   
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr , lipsum}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{csquotes}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[linktocpage]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[section]{placeins} 
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{stmaryrd} % used for arrows
+%====================================================================
+%
+%								Defined Colors
+%
+%====================================================================
+% http://latexcolor.com/
+\usepackage{color}
+\definecolor{lightGrey}{rgb}{105,105,105}
+\definecolor{azure}{rgb}{0.94, 1.0, 1.0}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{aureolin}{rgb}{0.99, 0.93, 0.0}
+\definecolor{bananamania}{rgb}{0.98, 0.91, 0.71}
+\definecolor{bazaar}{rgb}{0.6, 0.47, 0.48}
+\definecolor{blizzardblue}{rgb}{0.67, 0.9, 0.93}
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{charcoal}{rgb}{0.21, 0.27, 0.31}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\definecolor{cream}{rgb}{1.0, 0.99, 0.82}
+\definecolor{Midnightblue}{RGB}{34,34,103}
+%====================================================================
+%
+%								Code Highlighter Package
+%
+%====================================================================
+% Include this package if not already included: \usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\usepackage{listings}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{background}{RGB}{39, 40, 34}
+\definecolor{string}{RGB}{230, 219, 116}
+\definecolor{comment}{RGB}{117, 113, 94}
+\definecolor{normal}{RGB}{248, 248, 242}
+\definecolor{identifier}{RGB}{166, 226, 46}
+
+\definecolor{mygray}{rgb}{0.4,0.4,0.4}
+\definecolor{mygreen}{rgb}{0,0.8,0.6}
+\definecolor{myorange}{rgb}{1.0,0.4,0}
+\definecolor{includeColor}{RGB}{197,134,192}
+\definecolor{myblue}{RGB}{86,156,214}
+
+
+\definecolor{background}{RGB}{39, 40, 34}
+\definecolor{string}{RGB}{230, 219, 116}
+\definecolor{comment}{RGB}{117, 113, 94}
+\definecolor{normal}{RGB}{248, 248, 242}
+\definecolor{identifier}{RGB}{166, 226, 46}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+
+
+\lstset{style=mystyle}
+
+%\begin{lstlisting}[language=java]
+%\end{lstlisting}
+
+%====================================================================
+%
+%								Output Box
+%
+%====================================================================
+
+%\begin{tcolorbox}
+%\textbf{Output:}\\
+%>> g++ -o program main.cpp\\
+%\end{tcolorbox}
+
+%% Custom TcolorBox 
+
+
+%%%%%%%%%% Sample Box %%%%%%%%%%%%%%%%
+\newtcolorbox{BoxName}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  title    = {#3},
+  #1,
+}
+
+%%%%%%%%%% Important Box %%%%%%%%%%%%%%%%
+\definecolor{imp_box_green_title}{RGB}{191,254,192}
+\definecolor{imp_box_green_bg}{RGB}{230,255,230}
+\definecolor{imp_box_blue_title}{RGB}{0,0,139}
+
+\newtcolorbox{importantBox}[1][]
+{
+  colframe = {imp_box_green_title},
+  colback  = {imp_box_green_bg},
+  coltitle = {imp_box_green_title},  
+  title    = {\textcolor{imp_box_blue_title}{\textbf{Attention}}},
+  #1,
+}
+
+%%%%%%%%%% Problem Definition Box %%%%%%%%%%%%%%%%
+\definecolor{prob_box_white_title}{RGB}{145,81,23}
+\definecolor{prob_box_chocolate_bg}{RGB}{210,105,30}
+\definecolor{prob_box_white_text}{RGB}{255,255,255}
+\definecolor{prob_box_paleGreen_text}{RGB}{245,245,220}
+
+\definecolor{google_logo_color_blue}{RGB}{66, 133, 244}
+\definecolor{google_logo_color_red}{RGB}{219, 68, 55}
+\definecolor{google_logo_color_yellow}{RGB}{244, 180, 0}
+\definecolor{google_logo_color_green}{RGB}{15, 157, 88}
+
+\newtcolorbox{problemDefBox}[1][]
+{
+  colframe = {prob_box_white_title},
+  colback  = {prob_box_chocolate_bg},
+  coltitle = {prob_box_white_title},  
+ coltext={prob_box_paleGreen_text},
+  title    = {\textcolor{prob_box_white_text}{\textbf{Problem}}},
+  #1,
+}
+%====================================================================
+%
+%								Text Highlighter Package
+%
+%====================================================================
+\usepackage{xcolor}
+%\colorbox{pink}{highlight}
+%\newcommand{\hl}[1]{\colorbox{coolblack}{\color{cream}\textbf{#1}\color{black}}}
+%====================================================================
+%
+%								Some Useful Tips
+%
+%====================================================================
+
+%***********************************
+%			Items
+%***********************************
+
+%\begin{itemize}
+%\item \\[7pt]
+%\end{itemize}
+
+%====================================================================
+%
+%								Variables
+%
+%====================================================================
+%\newcommand{}[1]{}
+\newcommand{\hl}[1]{\colorbox{coolblack}{\color{cream}\textbf{#1}\color{black}}}
+\newcommand{\bs}{$\backslash$}
+\newcommand{\arrow}{$\shortrightarrow$}
+\newcommand{\google}{\href{https://www.google.com/}{\color{google_logo_color_blue}G\color{google_logo_color_red}o\color{google_logo_color_yellow}o\color{google_logo_color_blue}g\color{google_logo_color_green}l\color{google_logo_color_red}e\color{black}} \. }
+
+
+%====================================================================
+%
+%								Variables To Be Changed
+%
+%====================================================================
+\newcommand{\courseName}{Course Name}
+\newcommand{\assignmentName}{Homework I - Title}
+\newcommand{\courseProfessor}{Prof. Professor Name}
+\newcommand{\taName}{Dr. TA Name}
+\newcommand{\documentAuthor}{Hossein Dehghanipour}
+\newcommand{\writingMonth}{December 2021}
+
+%====================================================================
+%
+%								Header / Footer
+%
+%====================================================================
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\pagestyle{fancy}
+\fancyhf{}
+\chead{}
+\rhead{\courseName}
+\lhead{\assignmentName}
+\cfoot{Page \thepage}
+\lfoot{Vrije Universiteit Brussel}
+\rfoot{\writingMonth}
+%====================================================================
+%
+%								Start of The Document
+%
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+
+\begin{document}
+%====================================================================
+%
+%								First Page (Author, ...)
+%
+%====================================================================
+\thispagestyle{empty}
+ \begin{center}
+
+
+ %picture
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{VUB_Logo.jpg}
+\caption*{}
+\label{f-0-0}
+\end{figure}
+{
+\centering
+\fontfamily{titr}  
+\fontsize{19pt}{19pt}
+\selectfont 
+\textbf{\courseName}
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{16pt}{16pt}
+\selectfont 
+\assignmentName
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+\begin{tabular}{r l}
+\textcolor{blue}{Professor:}			&	\courseProfessor\\[7pt]
+\textcolor{blue}{TA:}				&	\taName\\[7pt]
+\textcolor{blue}{Author:}			& \documentAuthor \\[7pt]
+
+\end{tabular}
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+\writingMonth
+}
+
+\end{center}
+ 
+
+ 
+\setmainfont{Times New Roman}
+\newpage
+
+%====================================================================
+%
+%								Table of Content
+%
+%====================================================================
+\tableofcontents
+\newpage
+
+%====================================================================
+%
+%								Section: 
+%
+%====================================================================
+
+
+
+
+
+
+
+
+
+
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+%====================================================================
+
+%====================================================================
+%
+%								Section: 
+%
+%====================================================================
+\newpage
+\section{}
+
+	%--------------------------------------------------------------------%
+	%											%
+	%				Sample Code					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{lstlisting}[language=Python, caption=CodeCaption]
+	\end{lstlisting}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Code Output					%
+	%											%
+	%--------------------------------------------------------------------%
+	\begin{tcolorbox}
+	\textbf{Output:}\\
+
+	\end{tcolorbox}
+	%--------------------------------------------------------------------%
+	%											%
+	%				Important Box					%
+	%											%
+	%--------------------------------------------------------------------%
+
+	\begin{importantBox}
+
+		\begin{itemize}
+			\item
+		\end{itemize}
+	\end{importantBox}
+%====================================================================
+%
+%								End of Document
+%
+%====================================================================
+
+\end{document}
