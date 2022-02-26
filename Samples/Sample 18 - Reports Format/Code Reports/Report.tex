@@ -1,0 +1,258 @@
+\documentclass[11pt]{article}
+%====================================================================
+%
+%								Packages
+%
+%====================================================================
+						   
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr , lipsum}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{csquotes}
+\usepackage{blindtext}
+\usepackage{xcolor}
+\usepackage[linktocpage]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[section]{placeins} 
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage[breakable]{tcolorbox}
+\usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%			Start 1			 %%%%%%%%%%%%%%%%%%%%%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%			End 1				 %%%%%%%%%%%%%%%%%%%%%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  
+%====================================================================
+%
+%								Variables To Be Changed
+%
+%====================================================================
+\usepackage{color}
+\definecolor{lightGrey}{rgb}{105,105,105}
+\definecolor{azure}{rgb}{0.94, 1.0, 1.0}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{aureolin}{rgb}{0.99, 0.93, 0.0}
+\definecolor{bananamania}{rgb}{0.98, 0.91, 0.71}
+\definecolor{bazaar}{rgb}{0.6, 0.47, 0.48}
+\definecolor{blizzardblue}{rgb}{0.67, 0.9, 0.93}
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{charcoal}{rgb}{0.21, 0.27, 0.31}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\definecolor{cream}{rgb}{1.0, 0.99, 0.82}
+\definecolor{Midnightblue}{RGB}{34,34,103}
+\definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+\usepackage{lastpage}
+%%% Date Format Change %%%%
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+
+%%%  Assignment General Info %%%
+\newcommand{\courseName}{Data Analytics in Health Care and Connected Care}
+\newcommand{\assignmentName}{WPO (I)}
+
+%%% Professors %%%%
+\newcommand{\courseProfessorFirst}{Dr. Bart Jansen}
+\newcommand{\courseProfessorSecond}{Dr. Jef Vandemeulebroucke}
+\newcommand{\courseProfessorThird}{Dr. Nikolaos Deligiannis}
+%%% TAs %%%%
+\newcommand{\taNameFirst}{Dr. Redona Brahimetaj}
+\newcommand{\taNameSecond}{}
+\newcommand{\taNameThird}{}
+
+%%% Team Members %%%%
+\newcommand{\teamMemberFirst}{First Team Member Name}
+\newcommand{\teamMemberFirstStdNo}{(First Team Member STD No)}
+\newcommand{\teamMemberFirstEmail}{\href{mailto: First Team Member Email}{\teamMemberFirst}}
+
+\newcommand{\teamMemberSecond}{Second Team Member Name}
+\newcommand{\teamMemberSecondStdNo}{(Second Team Member STD No)}
+\newcommand{\teamMemberSecondEmail}{\href{mailto: Second Team Member Email}{\teamMemberSecond}}
+%%% Team Members %%%%
+\newcommand{\writingMonth}{\monthyeardate\today}
+\newcommand{\hl}[1]{\colorbox{coolblack}{\color{cream}\textbf{#1}\color{black}}}
+
+%%% Repository Link %%%%
+\newcommand{\repositoryLink}{\href{}{Click On This Link}}
+
+% % % % % % % % % % % % % % 
+% Small images inline with text
+\newcommand*{\authorimg}[1]{%
+	\raisebox{-.2\baselineskip}{%
+		\includegraphics[
+		height=0.5cm,
+		width=0.5cm,
+		keepaspectratio,
+		]{#1}%
+	}%
+}
+
+\newcommand{\smallLogo}[1]{{\authorimg{#1}}
+}
+% % % % % % % % % % % % % % 
+
+%====================================================================
+%
+%								Header / Footer
+%
+%====================================================================
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\pagestyle{fancy}
+\fancyhf{}
+\chead{}
+\rhead{\courseName\, - \assignmentName}
+\lhead{\smallLogo{VUB_Logo.jpg} Vrije Universiteit Brussel}
+\cfoot{\teamMemberSecondEmail\, | \teamMemberFirstEmail}
+\lfoot{\writingMonth}
+\rfoot{Page \textcolor{linkcolor}{\thepage} of \pageref{LastPage}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%====================================================================
+%
+%								First Page (Author, ...)
+%
+%====================================================================
+\thispagestyle{empty}
+ \begin{center}
+
+
+ %picture
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{VUB_Logo.jpg}
+\caption*{}
+\label{f-0-0}
+\end{figure}
+{
+\centering
+\fontfamily{titr}  
+\fontsize{20pt}{20pt}
+\selectfont 
+\textbf{\courseName}
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{16pt}{16pt}
+\selectfont 
+\assignmentName
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+\begin{tabular}{r l}
+\textcolor{blue}{Professors:}			&	\courseProfessorFirst\\[7pt]
+							&	\courseProfessorSecond\\[7pt]
+							&	\courseProfessorThird\\[7pt]
+\textcolor{blue}{TA:}				&	\taNameFirst\\[7pt]
+							&	\taNameSecond\\[7pt]
+							&	\taNameThird\\[7pt]
+\textcolor{blue}{Authors:}			&  	\textbf{\teamMemberFirstEmail \,\teamMemberFirstStdNo}\\[7pt]
+							&	\textbf{\teamMemberSecondEmail \,\teamMemberSecondStdNo}\\[7pt]
+ 
+\end{tabular}
+}
+\\[20pt]
+{
+\centering
+\fontfamily{titr}  
+\fontsize{12pt}{12pt}
+\selectfont 
+\writingMonth
+}
+
+\end{center}
+ 
+
+ 
+\setmainfont{Times New Roman}
+\newpage
+
+%====================================================================
+%
+%								Table of Content
+%
+%====================================================================
+\tableofcontents
+\newpage
+
+ \section{To The TA}
+Dear TA, \\
+The code of the current WPO is also attached to this document. In any case, if the pictures were blurry or you wanted to test the code for yourself, please open the \textbf{.ipynb} file. You can also see use the link below:\\[6pt]
+Original Source Code Repository Link: \repositoryLink \\[8pt]
+Best regards,\\
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%			Start 2			 %%%%%%%%%%%%%%%%%%%%%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%			End	 2			 %%%%%%%%%%%%%%%%%%%%%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\end{document}
